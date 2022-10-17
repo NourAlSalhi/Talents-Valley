@@ -1,0 +1,14 @@
+.mainFoo {
+    display: flex;
+    justify-content: space-around;
+    margin-left: 110px;
+    margin-top: 44px;
+    margin-right: 44px;
+    width: 456px;
+}
+
+.mainFoo p {
+    color: #151617;
+    font-weight: 400;
+    font-size: small;
+}

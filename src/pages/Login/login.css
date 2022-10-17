@@ -1,0 +1,69 @@
+.mainLog {
+    width: 703px;
+    background-color: #FFFFFF;
+    margin: 109px auto 0;
+    height: 821px;
+    border-radius: 15px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.headLog {
+    text-align: center;
+}
+
+.headLog img {
+    margin-bottom: 0;
+}
+
+.headLog h3 {
+    margin-top: -23px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    font-size: x-large;
+}
+
+.mainLog h4 {
+    margin-left: 101px;
+    margin-top: 64px;
+    margin-bottom: 40px;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    font-size: large;
+}
+/* style form */
+.formLog .logInput {
+    display: flex;
+    flex-direction: column;
+    margin-left: 101px;
+}
+
+.input2 {
+    margin-top: 32px;
+}
+
+.logLabel{
+    color:#707070;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.formLog input[type=submit] {
+    width: 500px;
+    height: 60px;
+    margin-top: 92px;
+    margin-left: 101px;
+    background-color: #4375FF;
+    color: white;
+    font-weight:500;
+    font-size:x-large;
+    border-radius: 7px;
+    border: none;
+}
+
+.logAccount{
+margin-top: 60px;
+text-align: center;
+}
+.logAccount p{
+    color:#151617;
+    font-weight: 350;
+}
