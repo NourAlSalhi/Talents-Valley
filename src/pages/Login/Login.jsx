@@ -1,29 +1,26 @@
 import React from 'react'
 import { useForm } from "react-hook-form";
-import Password from '../../hooks/HookForm/Password';
 //img
 import logo from "../../assets/images/logo.png"
+import Email from '../../hooks/HookForm/Email';
+import Password from '../../hooks/HookForm/Password';
 //style
 import "./login.css"
-
 const Login = () => {
-    const {  register,handleSubmit } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => console.log(data);
     return (
-        <div className='mainLog'>
+        <div className='main mainLog'>
             <div className='headLog'>
                 <img src={logo} alt='logo' />
                 <h3>Talents Valley</h3>
             </div>
             <h4>Login to Your Account</h4>
-            <div className='formLog'>
+            <div className='form'>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <div className='logInput input2'>
-                        <label className='logLabel'>Email</label>
-                        <input {...register("email")} />
-                    </div>
-                    <Password />
-                    <input type="submit" value="Sign In" />
+                   <Email/>
+                   <Password/>
+                    <input type="submit" value="Sign In "/>
                 </form>
                 <div className='logAccount'>
                     <p>Don't have an account?</p>

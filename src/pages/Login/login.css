@@ -1,58 +1,23 @@
-.mainLog h4 {
-    margin-left: 101px;
-    margin-top: 64px;
-    margin-bottom: 40px;
-    letter-spacing: 1.5px;
-    font-weight: 600;
-    font-size: large;
-}
 /* style form */
-.formLog .logInput {
-    display: flex ; 
-    flex-direction: column;
-    margin-left: 101px;
-}
-
-.logInput input{
-    width: 500px;
-    height: 50px;
-    padding: 20px;
-}
-.input2 {
-    margin-top: 32px;
-}
-
-.logLabel{
-    color:#707070;
-    font-weight: 500;
-    margin-bottom: 10px;
-}
-
-.formLog input[type=submit] {
-    width: 500px;
+.form input[type=submit] {
+    width: 520px;
     height: 60px;
     margin-top: 92px;
     margin-left: 101px;
     background-color: #4375FF;
     color: white;
-    font-weight:500;
-    font-size:x-large;
+    font-weight: 500;
+    font-size: x-large;
     border-radius: 7px;
     border: none;
 }
 
-.logAccount{
-margin-top: 60px;
-text-align: center;
-}
-.logAccount p{
-    color:#151617;
-    font-weight: 350;
+.logAccount {
+    margin-top: 60px;
+    text-align: center;
 }
 
-.password{
-    border: 1px solid #BEC2C6;
-    height: 60px;
-    border-radius: 3px;
-    padding: 20px;
+.logAccount p {
+    color: #151617;
+    font-weight: 350;
 }

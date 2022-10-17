@@ -1,13 +1,18 @@
+/* logo&title */
 .mainLog, .mainSign {
     width: 703px;
     background-color: #FFFFFF;
-    margin: 109px auto 0;
     border-radius: 15px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 .mainLog{
     height: 821px;
     margin-bottom: 86px;
+    margin: 109px auto 86px;
+}
+.mainSign{
+    height: 948px;
+    margin: 66px auto 0px;
 }
 .headLog {
     text-align: center;
@@ -17,9 +22,44 @@
     margin-bottom: 0;
 }
 
+.main h4 {
+    margin-left: 101px;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    font-size: large;
+}
+.mainLog h4{
+    margin-top: 64px;
+    margin-bottom: 40px;
+}
 .headLog h3 {
     margin-top: -23px;
     letter-spacing: 2px;
     font-weight: 500;
     font-size: x-large;
+}
+/* ------------------form -----------------------------------------------------*/
+.form .logInput {
+    display: flex;
+    flex-direction: column;
+    margin-left: 101px;
+}
+
+.logInput input {
+    width: 500px;
+    height: 60px;
+    margin-top: 9px;
+    font-size: medium;
+    padding-left: 14px;
+    border: 1px solid #BEC2C6;
+    border-radius: 7px;
+}
+
+.input2 {
+    margin-top: 32px;
+}
+
+.logLabel {
+    color: #707070;
+    font-weight: 500;
 }

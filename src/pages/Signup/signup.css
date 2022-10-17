@@ -2,3 +2,60 @@
     height: 948px;
     margin-bottom: 0;
 }
+.fullName{
+    display: flex;
+    width: 500px;
+    margin-left: 101px;
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+.firstName, .lastName {
+    display: flex;
+    flex-direction: column;
+}
+
+.inputName input{
+    width: 224px;
+    height: 60px;
+    margin-top: 9px;
+    margin-right: 32px;
+    font-size: medium;
+    padding-left: 14px;
+    border: 1px solid #BEC2C6;
+    border-radius: 7px;
+
+}
+.logInput{
+    margin-top: 32px;
+}
+.form select{
+    width: 500px;
+    height: 60px;
+    padding: 20px;
+    margin-top: 10px;
+    font-size: medium;
+    border: 1px solid #BEC2C6;
+    border-radius: 7px;
+}
+.form input[type=submit] {
+    width: 520px;
+    height: 60px;
+    margin-top: 92px;
+    margin-left: 101px;
+    background-color: #4375FF;
+    color: white;
+    font-weight: 500;
+    font-size: x-large;
+    border-radius: 7px;
+    border: none;
+}
+.logAccount {
+    margin-top: 60px;
+    text-align: center;
+}
+
+.logAccount p {
+    color: #151617;
+    font-weight: 400;
+    font-size: medium;
+}
