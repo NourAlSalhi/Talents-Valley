@@ -1,0 +1,21 @@
+.main h4{
+    margin-bottom: 30px;
+}
+.main p{
+    color: #707070;
+    margin-left: 101px;
+    margin-top: 0;
+}
+/* style form */
+.form input[type=submit] {
+    width: 520px;
+    height: 60px;
+    margin-top: 92px;
+    margin-left: 101px;
+    background-color: #4375FF;
+    color: white;
+    font-weight: 500;
+    font-size: x-large;
+    border-radius: 7px;
+    border: none;
+}
