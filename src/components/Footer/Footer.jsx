@@ -4,9 +4,11 @@ import "./footer.css"
 const Footer = () => {
     return (
         <div className='mainFoo'>
-            <p>Talents Valley</p>
-            <p>Contacts</p>
-            <p>Privacy & Terms</p>
+            <div className='foo'>
+                <p>Talents Valley</p>
+                <p>Contacts</p>
+                <p>Privacy & Terms</p>
+            </div>
         </div>
     )
 }

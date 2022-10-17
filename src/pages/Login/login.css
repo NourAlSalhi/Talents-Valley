@@ -1,27 +1,3 @@
-.mainLog {
-    width: 703px;
-    background-color: #FFFFFF;
-    margin: 109px auto 0;
-    height: 821px;
-    border-radius: 15px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-}
-
-.headLog {
-    text-align: center;
-}
-
-.headLog img {
-    margin-bottom: 0;
-}
-
-.headLog h3 {
-    margin-top: -23px;
-    letter-spacing: 2px;
-    font-weight: 500;
-    font-size: x-large;
-}
-
 .mainLog h4 {
     margin-left: 101px;
     margin-top: 64px;
@@ -32,11 +8,16 @@
 }
 /* style form */
 .formLog .logInput {
-    display: flex;
+    display: flex ; 
     flex-direction: column;
     margin-left: 101px;
 }
 
+.logInput input{
+    width: 500px;
+    height: 50px;
+    padding: 20px;
+}
 .input2 {
     margin-top: 32px;
 }
@@ -46,6 +27,7 @@
     font-weight: 500;
     margin-bottom: 10px;
 }
+
 .formLog input[type=submit] {
     width: 500px;
     height: 60px;
@@ -66,4 +48,11 @@ text-align: center;
 .logAccount p{
     color:#151617;
     font-weight: 350;
+}
+
+.password{
+    border: 1px solid #BEC2C6;
+    height: 60px;
+    border-radius: 3px;
+    padding: 20px;
 }

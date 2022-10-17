@@ -1,0 +1,25 @@
+.mainLog, .mainSign {
+    width: 703px;
+    background-color: #FFFFFF;
+    margin: 109px auto 0;
+    border-radius: 15px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+.mainLog{
+    height: 821px;
+    margin-bottom: 86px;
+}
+.headLog {
+    text-align: center;
+}
+
+.headLog img {
+    margin-bottom: 0;
+}
+
+.headLog h3 {
+    margin-top: -23px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    font-size: x-large;
+}
