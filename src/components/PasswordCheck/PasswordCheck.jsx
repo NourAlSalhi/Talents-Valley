@@ -1,20 +1,19 @@
 import React from 'react'
-import logo from "../../assets/images/logo.png"
+import Logo from '../Logo/Logo'
+import Button from '../../hooks/HookForm/Button'
 import check from "../../assets/images/check.png"
 //style
 import "./passwordCheck.css"
+
 const PasswordCheck = () => {
     return (
-        <div className='mainLog mainCheck'>
-            <div className='headLog'>
-                <img src={logo} alt='logo' />
-                <h3>Talents Valley</h3>
-            </div>
+        <div className='mainLog mainCheck main'>
+            <Logo />
             <img className='check' src={check} />
             <h4>Password Reset</h4>
             <p>Your Password has been Successfully Reset.
                 Click Below To Login</p>
-                <input type="submit" value="Sign In "/>
+            <Button value="Sign In " />
         </div>
     )
 }
