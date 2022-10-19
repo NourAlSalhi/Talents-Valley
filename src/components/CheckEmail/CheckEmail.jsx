@@ -1,6 +1,6 @@
 import React from 'react'
 import { useForm } from "react-hook-form";
-import Button from '../../hooks/HookForm/Button';
+import Button from '../../hooks/HookForm/Button/Button';
 import Logo from '../Logo/Logo';
 //style
 import "./CheckEmail.css"
@@ -17,7 +17,7 @@ const CheckEmail = () => {
             <div className='form'>
                 <div className='number'></div>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <Button value="Continue " />
+                    <Button value="Continue " path="/"/>
                 </form>
 
             </div>

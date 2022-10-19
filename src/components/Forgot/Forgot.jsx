@@ -2,7 +2,7 @@ import React from 'react'
 import { useForm } from "react-hook-form";
 import Logo from '../Logo/Logo';
 import Email from '../../hooks/HookForm/Email';
-import Button from '../../hooks/HookForm/Button';
+import Button from '../../hooks/HookForm/Button/Button';
 //style
 import "./Forgot.css"
 
@@ -17,7 +17,7 @@ const Forgot = () => {
             <div className='form'>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <Email />
-                    <Button value="Send Code " />
+                    <Button value="Send Code " path='/checkEmail' />
                 </form>
             </div>
         </div>

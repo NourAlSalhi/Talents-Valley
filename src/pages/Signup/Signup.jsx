@@ -2,8 +2,9 @@ import React from 'react'
 import { useForm } from "react-hook-form";
 import Logo from '../../components/Logo/Logo';
 import Email from '../../hooks/HookForm/Email';
-import Password from '../../hooks/HookForm/Password';
-import Button from '../../hooks/HookForm/Button';
+import Password from '../../hooks/HookForm/Password/Password';
+import Button from '../../hooks/HookForm/Button/Button';
+import { Link } from "react-router-dom";
 //style
 import "./signup.css"
 
@@ -37,9 +38,9 @@ const Signup = () => {
                             <option value="Turkey">Turkey</option>
                         </select>
                     </div>
-                    <Button value="Sign Up " className="btnSignUp"/>
+                    <Button className="btnSignUp" value="Sign Up " path="/" />
                     <div className='logAccount'>
-                        <p>Already have an account?</p>
+                        <p>Already have an account?<span><Link className='signin' to="/">Sign in</Link></span></p>
                     </div>
                 </form>
             </div>

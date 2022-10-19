@@ -1,0 +1,16 @@
+.btnClick button{
+    width: 510px;
+    height: 60px;
+    margin-top: 60px;
+    margin-left: 101px;
+    border: none;
+    border-radius: 7px;
+    background-color: #4375FF;
+}
+
+.btnClick button .btn{
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: x-large;
+}
