@@ -1,15 +1,15 @@
 import React from 'react'
 import { useForm } from "react-hook-form";
 import Logo from '../../components/Logo/Logo';
-import Email from '../../hooks/HookForm/Email';
+import Input from '../../hooks/HookForm/Input/Input';
 import Password from '../../hooks/HookForm/Password/Password';
 import Button from '../../hooks/HookForm/Button/Button';
 import { Link } from "react-router-dom";
 //style
 import "./login.css"
-
 const Login = () => {
-
+    //variable
+    //state
     const { handleSubmit, formState: { errors } } = useForm();
     //function
     const onSubmit = data => console.log(data);
@@ -20,7 +20,7 @@ const Login = () => {
             <h4>Login to Your Account</h4>
             <div className='form'>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <Email />
+                    <Input value="Email" name="email" type="email" />
                     <Password />
                     <Link className='forget' to="/forgot">Forgot Password?</Link>
                     <Button value='Sign In ' path="/" />

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useForm } from "react-hook-form";
 import Logo from '../../components/Logo/Logo';
-import Email from '../../hooks/HookForm/Email';
+import Input from '../../hooks/HookForm/Input/Input';
 import Password from '../../hooks/HookForm/Password/Password';
 import Button from '../../hooks/HookForm/Button/Button';
 import { Link } from "react-router-dom";
@@ -27,7 +27,7 @@ const Signup = () => {
                             <input placeholder='Enter last name ' type="text" {...register("First Name")} />
                         </div>
                     </div>
-                    <Email />
+                    <Input value="Email" name="email" type="email" />
                     <Password />
                     <div className='logInput'>
                         <label className='logLabel'>Cuntry</label>
