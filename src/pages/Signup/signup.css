@@ -1,57 +1,44 @@
-.mainSign{
+.mainSign {
     height: 948px;
     margin: 66px auto 0px;
 }
-.fullName{
-    display: flex;
-    width: 500px;
-    margin-left: 101px;
-    margin-top: 32px;
-    margin-bottom: 32px;
+
+.mainSign h4 {
+    margin: 34px 0 40px 0;
 }
-.firstName, .lastName {
-    display: flex;
-    flex-direction: column;
-}
+
 /* ---------- style form ----------------- */
-.inputName input{
-    width: 224px;
+.fullName {
+    display: flex;
+    margin: 32px 0;
+}
+
+.fullName,
+.form select {
+    width: 100%;
+}
+
+.inputName input {
+    width: 234px;
     height: 60px;
-    margin-top: 9px;
-    margin-right: 32px;
-    font-size: medium;
+    margin: 9px 32px 0 0;
     padding-left: 14px;
-    border: 1px solid #BEC2C6;
-    border-radius: 7px;
 
 }
-.logInput{
+
+.form select,
+.inputName input {
+    font-size: medium;
+    border: 1px solid #BEC2C6;
+    border-radius: 7px;
+}
+
+.logInput {
     margin-top: 32px;
 }
-.form select{
-    width: 518px;
+
+.form select {
     height: 60px;
     padding: 20px;
     margin-top: 10px;
-    font-size: medium;
-    border: 1px solid #BEC2C6;
-    border-radius: 7px;
-}
-.btnSignUp{
-    margin-top: 60px;
-}
-.logAccount {
-    margin-top: 60px;
-    text-align: center;
-}
-
-.logAccount p {
-    color: #151617;
-    font-weight: 400;
-    font-size: medium;
-}
-.signin{
-    color: #0044FF;
-    margin-left: 5px;
-    text-decoration: none;
 }

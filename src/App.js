@@ -4,6 +4,7 @@ import Footer from './components/Footer/Footer';
 import Forgot from './components/Forgot/Forgot';
 import CheckEmail from './components/CheckEmail/CheckEmail';
 import PasswordCheck from './components/PasswordCheck/PasswordCheck';
+import NewPassword from './components/NewPassword/NewPassword';
 import {Routes,Route} from 'react-router-dom'
 //style
 import './App.css';
@@ -15,6 +16,7 @@ function App() {
       <Route path='/signup' element={<Signup/>} />
       <Route path='/forgot' element={<Forgot/>} />
       <Route path='/checkEmail' element={<CheckEmail/>} />
+       <Route path='/newPassword' element={<NewPassword/>} />
       <Route path='/checkPassword' element={<PasswordCheck/>} />
      </Routes>
      <Footer />

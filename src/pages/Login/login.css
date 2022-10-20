@@ -1,61 +1,48 @@
-/* ------------------------------- In All Interface login & Signup */
+/* -------------------------------  All Interface login & Signup */
 .main {
     width: 703px;
     background-color: #FFFFFF;
     border-radius: 15px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    padding: 24px 102px 0 101px
 }
 .main h4 {
-    margin-left: 101px;
-    letter-spacing: 1.5px;
     font-weight: 600;
     font-size: large;
 }
 .logAccount p{
-    color: #151617;
-    font-weight: 400;
-    text-align: center;
+    color: #151617 !important;
+    font-weight: 400 !important;
 }
 
-/* ------------------------------ login */
-.mainLog{
+/* login */
+.mainLogin{
     height: 821px;
     margin: 109px auto 86px;
 }
-.mainLog h4{
-    margin-top: 64px;
-    margin-bottom: 40px;
+/*  title */
+.mainLogin h4{
+    margin: 64px 0 40px 0 ;
 }
-/* ------------------------------ style form */
-.form .logInput {
-    display: flex;
-    flex-direction: column;
-    margin-left: 101px;
-}
-
-.logInput input {
-    width: 500px;
-    height: 60px;
-    margin-top: 9px;
-    font-size: medium;
-    padding-left: 14px;
-    border: 1px solid #BEC2C6;
-    border-radius: 7px;
-}
+/*  form */
 .logLabel,.forget{
     color: #707070;
 }
-.logLabel {
-    font-weight: 500;
-}
-.signup,.forget{
+.sign,.forget{
     text-decoration: none;
 }
-.forget{
-    margin-left: 490px;
-    margin-top: 17px;
+.logLabel,.forget {
+    font-weight: 500;
 }
-.signup{
+.forget{
+    margin-left: 370px;
+}
+.logAccount {
+    margin-top: 60px;
+    text-align: center;
+    font-size: x-large;
+}
+.sign{
     color: #0044FF;
     margin-left: 5px;
 }

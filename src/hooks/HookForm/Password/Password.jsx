@@ -7,7 +7,7 @@ import { faEye } from "@fortawesome/free-solid-svg-icons";
 import './password.css'
 const eye = <FontAwesomeIcon icon={faEye} />;
 
-const Password = () => {
+const Password = (props) => {
   const { register } = useForm();
   //state
   const [passwordShow, setPasswordShow] = useState(false);
@@ -17,7 +17,7 @@ const Password = () => {
   };
   return (
     <div className='logInput '>
-      <label className='logLabel'>Password</label>
+      <label className='logLabel'>{props.label}</label>
       <div className='password'>
         <input
           name='password'

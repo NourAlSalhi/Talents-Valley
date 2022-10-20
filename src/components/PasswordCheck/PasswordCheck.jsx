@@ -7,7 +7,7 @@ import "./passwordCheck.css"
 
 const PasswordCheck = () => {
     return (
-        <div className='mainLog mainCheck main'>
+        <div className='mainLogin mainCheck main'>
             <Logo />
             <img className='check' src={check} />
             <h4>Password Reset</h4>

@@ -1,13 +1,20 @@
-.main p{
-    font-weight: 380;
-    font-size:x-large;
-    width: 500px;
+.checkEmail p {
+    font-size: larger;
+    line-height: 2;
     margin-bottom: 48px;
+    color: #707070;
 }
-.number{
-    width: 60px;
-    height: 60px;
+
+.codeNum {
+    display: inline;
+}
+
+.number {
+    width: 50px;
+    height: 50px;
+    border: none;
+    text-align: center;
     box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
-    margin-left: 131px;
-    margin-right: 11px;
+    font-size: x-large;
+    margin: 0 -35px 0 50px;
 }

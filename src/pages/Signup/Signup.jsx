@@ -28,7 +28,7 @@ const Signup = () => {
                         </div>
                     </div>
                     <Input value="Email" name="email" type="email" />
-                    <Password />
+                    <Password label="Password"/>
                     <div className='logInput'>
                         <label className='logLabel'>Cuntry</label>
                         <select  {...register("gender")}>
@@ -40,7 +40,7 @@ const Signup = () => {
                     </div>
                     <Button className="btnSignUp" value="Sign Up " path="/" />
                     <div className='logAccount'>
-                        <p>Already have an account?<span><Link className='signin' to="/">Sign in</Link></span></p>
+                        <p>Already have an account?<span><Link className='sign' to="/">Sign in</Link></span></p>
                     </div>
                 </form>
             </div>

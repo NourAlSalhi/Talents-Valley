@@ -2,13 +2,9 @@
     text-align: center;
 }
 
-.headLogo img {
-    margin-bottom: 0;
-}
-
 .headLogo h3 {
     margin-top: -23px;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
     font-weight: 500;
     font-size: x-large;
 }

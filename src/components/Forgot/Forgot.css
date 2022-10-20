@@ -1,9 +1,12 @@
-.main h4{
+.main h4 {
     margin-bottom: 30px;
 }
-.main p{
+
+.forgot p {
     color: #707070;
-    margin-left: 101px;
-    margin-top: 0;
+    font-size: larger;
 }
-/* style form */
+
+.forgot Button {
+    margin-top: 92px;
+}

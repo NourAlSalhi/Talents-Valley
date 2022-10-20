@@ -10,7 +10,7 @@ const Forgot = () => {
     const { handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => console.log(data);
     return (
-        <div className='main mainLog'>
+        <div className='main mainLogin forgot'>
             <Logo />
             <h4>Forgot Password?</h4>
             <p>We'll send a code to your email to reset your password</p>

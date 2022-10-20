@@ -8,25 +8,24 @@ import { Link } from "react-router-dom";
 //style
 import "./login.css"
 const Login = () => {
-    //variable
     //state
     const { handleSubmit, formState: { errors } } = useForm();
     //function
     const onSubmit = data => console.log(data);
 
     return (
-        <div className='main mainLog'>
+        <div className='main mainLogin'>
             <Logo />
             <h4>Login to Your Account</h4>
             <div className='form'>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <Input value="Email" name="email" type="email" />
-                    <Password />
+                    <Password label="Password"/>
                     <Link className='forget' to="/forgot">Forgot Password?</Link>
                     <Button value='Sign In ' path="/" />
                 </form>
                 <div className='logAccount'>
-                    <p>Don't have an account?<span><Link className='signup' to="/signup">Sign up</Link></span> </p>
+                    <p>Don't have an account?<span><Link className='sign' to="/signup">Sign up</Link></span> </p>
                 </div>
             </div>
         </div>
