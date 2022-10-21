@@ -16,7 +16,7 @@ const Forgot = () => {
             <p>We'll send a code to your email to reset your password</p>
             <div className='form'>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <Input value="Email" name="email" type="email" />
+                    <Input placeholder='email@gmail.com' value="Email" name="email" type="email" />
                     <Button value="Send Code " path='/checkEmail' />
                 </form>
             </div>

@@ -8,8 +8,8 @@ const NewPassword = () => {
         <div className='mainLogin main'>
             <Logo />
             <h4>Create New Password</h4>
-            <Password label="New Password" />
-            <Password label='Re-Enter Password' />
+            <Password label="New Password" name='newPassword'/>
+            <Password label='Re-Enter Password' name='confirmPassword' />
             <Button path='/checkPassword' value='Continue' />
         </div>
     )

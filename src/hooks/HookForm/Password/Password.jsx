@@ -5,9 +5,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 //style
 import './password.css'
+// constant
 const eye = <FontAwesomeIcon icon={faEye} />;
 
 const Password = (props) => {
+  //hook
   const { register } = useForm();
   //state
   const [passwordShow, setPasswordShow] = useState(false);
@@ -20,9 +22,9 @@ const Password = (props) => {
       <label className='logLabel'>{props.label}</label>
       <div className='password'>
         <input
-          name='password'
-          type={passwordShow ? "text" : "password"} {...register("password", { min: 8 }
-          )} />
+          name={props.name}
+          type={passwordShow ? "text" : "password"} {...register(props.name)}
+        />
         <i onClick={PasswordVisiblity}>{eye}</i>
       </div>
     </div>
