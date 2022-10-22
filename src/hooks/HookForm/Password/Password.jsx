@@ -13,17 +13,18 @@ const Password = (props) => {
   const { register } = useForm();
   //state
   const [passwordShow, setPasswordShow] = useState(false);
-  //function
+  //functions
   const PasswordVisiblity = () => {
     setPasswordShow(passwordShow ? false : true);
   };
+
   return (
     <div className='logInput '>
       <label className='logLabel'>{props.label}</label>
       <div className='password'>
         <input
           name={props.name}
-          type={passwordShow ? "text" : "password"} {...register(props.name)}
+          type={passwordShow ? "text" : "password"} {...props.register(props.name)}
         />
         <i onClick={PasswordVisiblity}>{eye}</i>
       </div>

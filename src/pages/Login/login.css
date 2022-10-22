@@ -6,48 +6,60 @@
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     padding: 24px 102px 0 101px
 }
+
 .main h4 {
     font-weight: 600;
     font-size: large;
 }
-.logAccount p{
+
+.logAccount p {
     color: #151617 !important;
     font-weight: 400 !important;
 }
 
 /* login */
-.mainLogin{
+.mainLogin {
     height: 821px;
     margin: 109px auto 86px;
 }
+
 /*  title */
-.mainLogin h4{
-    margin: 64px 0 40px 0 ;
+.mainLogin h4 {
+    margin: 64px 0 40px 0;
 }
+
 /*  form */
-.logLabel,.forget{
+.logLabel,
+.forget {
     color: #707070;
 }
-.sign,.forget{
+
+.sign,
+.forget {
     text-decoration: none;
 }
-.logLabel,.forget {
+
+.logLabel,
+.forget {
     font-weight: 500;
 }
-.forget{
+
+.forget {
     margin-left: 370px;
 }
+
 .logAccount {
     margin-top: 60px;
     text-align: center;
     font-size: x-large;
 }
-.sign{
+
+.sign {
     color: #0044FF;
     margin-left: 5px;
 }
 
 /* error */
-.error{
+.error {
     color: red;
 }

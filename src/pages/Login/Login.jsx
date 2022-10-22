@@ -14,12 +14,8 @@ import "./login.css"
 const baseURL = "https://talents-valley.herokuapp.com/api";
 const Login = () => {
     //state
-    // const [data, setData] = React.useState({
-    //     email: '',
-    //     Password: ''
-    // });
     //hook
-    const { register,handleSubmit, formState: { errors } } = useForm(
+    const { register, handleSubmit, formState: { errors } } = useForm(
         {
             resolver: yupResolver(registerAccountSchema),
         }
@@ -43,13 +39,11 @@ const Login = () => {
             <h4>Login to Your Account</h4>
             <div className='form'>
                 <form onSubmit={handleSubmit(submit)}>
-                    <Input placeholder='email@gmail.com'  register={register} value="Email" name="email" type="email" />
-                    {/* {errors.email && <p className='error'>{errors.email.message}</p>} */}
-                    <Password label="Password" name='password' />
-                    {/* {errors.password && <p className='error'>{errors.password.message}</p>} */}
+                    <Input placeholder='email@gmail.com' register={register} value="Email" name="email" type="email" />
+                    {errors.email && <p className='error'>{errors.email.message}</p>}
+                    <Password label="Password" register={register} name='password' />
+                    {errors.password && <p className='error'> {errors.password.message} </p>}
                     <Link className='forget' to="/forgot">Forgot Password?</Link>
-                    {/* <input  {...register('newPassword')} />
-                    {errors.newPassword && <p className='error'>{errors.newPassword.message}</p>} */}
                     <Button value='Sign In ' path="/" type="submit" />
                 </form>
                 <div className='logAccount'>

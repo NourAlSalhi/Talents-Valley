@@ -36,10 +36,16 @@ const Signup = () => {
                             <input placeholder='Enter last name ' type="text" {...register("lastName")} />
                         </div>
                     </div>
-                    <Input placeholder='email@gmail.com' value="Email" name="email" type="email" />
-                    <p className='error'>{errors.email?.message}</p>
-                    <Password label="Password" name='newPassword' />
-                    {errors.newPassword && <p className='error'>{errors.newPassword.message}</p>}
+                    <Input placeholder='email@gmail.com' register={register} value="Email" name="email" type="email" />
+                    {errors.email && <p className='error'>{errors.email.message}</p>}
+                    <Password label="Password" register={register} name='newPassword' />
+                    {errors.newPassword && <p style={{ color: "red" }}> {errors.newPassword.message} </p>}
+                    {/* {errors.newPassword && errors.newPassword.type === "max" && (
+                        <p style={{ color: "green" }}> 'Nice work. This is an excellent password'</p>
+                    )}
+                    {errors.newPassword && errors.newPassword.type === "required" && (
+                        <p>Your input is required</p>
+                    )} */}
                     <div className='logInput'>
                         <label className='logLabel'>Cuntry</label>
                         <select  {...register("gender")}>

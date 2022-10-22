@@ -7,7 +7,7 @@ import Button from '../../hooks/HookForm/Button/Button';
 import "./Forgot.css"
 
 const Forgot = () => {
-    const { handleSubmit, formState: { errors } } = useForm();
+    const { register,handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => console.log(data);
     return (
         <div className='main mainLogin forgot'>
@@ -16,7 +16,7 @@ const Forgot = () => {
             <p>We'll send a code to your email to reset your password</p>
             <div className='form'>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <Input placeholder='email@gmail.com' value="Email" name="email" type="email" />
+                    <Input placeholder='email@gmail.com' register={register} value="Email" name="email" type="email" />
                     <Button value="Send Code " path='/checkEmail' />
                 </form>
             </div>

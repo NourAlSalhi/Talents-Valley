@@ -7,9 +7,6 @@ import { Link } from 'react-router-dom';
 import "./CheckEmail.css"
 
 const CheckEmail = () => {
-    //variable
-    const arrNum1 = [1, 2, 3];
-    const arrNum2 = [4, 5, 6];
     //state
     const { register, handleSubmit, formState: { errors } } = useForm();
     //function
@@ -23,12 +20,12 @@ const CheckEmail = () => {
                 reset your password</p>
             <div className='form'>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    {arrNum1.map(number =>
-                        <div key={number.toString()} className='codeNum'><input className='number' {...register("code")} /> </div>
-                    )}
-                    {arrNum2.map((number) =>
-                        <div key={number.toString()} className='codeNum  '><input className='number '  {...register("code")} /> </div>
-                    )}
+                    <div className='codeNum'><input className='number' {...register("code1")} /> </div>
+                    <div className='codeNum'><input className='number' {...register("code2")} /> </div>
+                    <div className='codeNum'><input className='number' {...register("code3")} /> </div>
+                    <div className='codeNum'><input className='number' {...register("code4")} /> </div>
+                    <div className='codeNum'><input className='number' {...register("code5")} /> </div>
+                    <div className='codeNum'><input className='number' {...register("code6")} /> </div>
                     <Button value="Continue " path="/newPassword" />
                     <div className='logAccount'>
                         <p>Didn't get the code?<span><Link className='sign' to="/checkEmail">Resend</Link></span> </p>
