@@ -1,6 +1,7 @@
 .mainSign {
-    height: 948px;
+    height: auto;
     margin: 66px auto 0px;
+    padding-bottom:44px ;
 }
 
 .mainSign h4 {

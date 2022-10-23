@@ -19,7 +19,6 @@ const Signup = () => {
     );
     //function
     const submit = data => console.log(data);
-    // const onSubmit = data => console.log(data);
     return (
         <div className=' main mainSign'>
             <Logo />
@@ -30,10 +29,12 @@ const Signup = () => {
                         <div className='firstName inputName'>
                             <label className='logLabel'>First Name</label>
                             <input placeholder='Enter first name ' type="text" {...register("firstName")} />
+                            {errors.firstName && <p className='error'>{errors.firstName.message}</p>}
                         </div>
                         <div className='lastName inputName'>
                             <label className='logLabel'>Last Name</label>
                             <input placeholder='Enter last name ' type="text" {...register("lastName")} />
+                            {errors.lastName && <p className='error'>{errors.lastName.message}</p>}
                         </div>
                     </div>
                     <Input placeholder='email@gmail.com' register={register} value="Email" name="email" type="email" />
@@ -46,14 +47,17 @@ const Signup = () => {
                     {errors.newPassword && errors.newPassword.type === "required" && (
                         <p>Your input is required</p>
                     )} */}
+                    <Input register={register} value="Phone Number" name="phoneNumber" type="number" />
+                    {errors.phoneNumber && <p className='error'>{errors.phoneNumber.message}</p>}
                     <div className='logInput'>
                         <label className='logLabel'>Cuntry</label>
-                        <select  {...register("gender")}>
+                        <select  {...register("cuntry")}>
                             <option value=""></option>
                             <option value="UAE">UAE</option>
                             <option value="Germany">Germany</option>
                             <option value="Turkey">Turkey</option>
                         </select>
+                        {errors.cuntry && <p className='error'>{errors.cuntry.message}</p>}
                     </div>
                     <Button className="btnSignUp" value="Sign Up " path="/" />
                     <div className='logAccount'>

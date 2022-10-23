@@ -3,13 +3,13 @@ import Button from '../../hooks/HookForm/Button/Button'
 import Password from '../../hooks/HookForm/Password/Password'
 import Logo from '../Logo/Logo'
 import { yupResolver } from '@hookform/resolvers/yup';
-import { registerAccountSchema } from '../../utils/Validation/yup';
+import { resetPassword } from '../../utils/Validation/yup';
 import { useForm } from 'react-hook-form'
 
 const NewPassword = () => {
     const { register, handleSubmit, formState: { errors } } = useForm(
         {
-            resolver: yupResolver(registerAccountSchema),
+            resolver: yupResolver(resetPassword),
         }
     )
     const submit = data => console.log(data)

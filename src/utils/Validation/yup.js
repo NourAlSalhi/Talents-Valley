@@ -1,9 +1,25 @@
 import * as yup from "yup";
 
-
-export const registerAccountSchema = yup.object({
+export const loginSchema = yup.object({
     email: yup.string().email().required('this field must be an email').trim(),
     password: yup.string().required('this field must be an password .').trim(),
-    newPassword: yup.string().min(6, 'must be more than 6 charterer .').required(),
-    confirmPassword: yup.string().oneOf([yup.ref('newPassword')], 'passwords must match').required(),
 }).required();
+
+export const registerAccountSchema = yup.object({
+    firstName: yup.string().required('this field must be an first name').trim(),
+    lastName: yup.string().required('this field must be an last name').trim(),
+    email: yup.string().email().required('this field must be an email').trim(),
+    newPassword: yup.string().min(6, 'must be more than 6 charterer').max(10).required().trim(),
+    phoneNumber: yup.number().required('this field must be a number'),
+    cuntry: yup.string().required(),
+}).required();
+
+export const forgot = yup.object({
+    email: yup.string().email().required('this field must be an email').trim(),
+}).required();
+
+export const resetPassword = yup.object({
+    newPassword: yup.string().min(6, 'must be more than 6 charterer').max(10).required().trim(),
+    confirmPassword: yup.string().oneOf([yup.ref('newPassword')], 'passwords must match').required().trim(),
+})
+

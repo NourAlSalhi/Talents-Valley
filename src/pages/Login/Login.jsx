@@ -1,32 +1,42 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import Logo from '../../components/Logo/Logo';
 import Input from '../../hooks/HookForm/Input/Input';
 import Password from '../../hooks/HookForm/Password/Password';
 import Button from '../../hooks/HookForm/Button/Button';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { registerAccountSchema } from '../../utils/Validation/yup';
+import { loginSchema } from '../../utils/Validation/yup';
 import { Link } from "react-router-dom";
 import axios from "axios";
 //style
 import "./login.css"
 //constant
-const baseURL = "https://talents-valley.herokuapp.com/api";
+// const baseURL = "https://talents-valley.herokuapp.com/api";
 const Login = () => {
     //state
+    // const [user, setUser] = useState()
     //hook
     const { register, handleSubmit, formState: { errors } } = useForm(
         {
-            resolver: yupResolver(registerAccountSchema),
+            resolver: yupResolver(loginSchema),
         }
     );
 
     //function
-    const handleChange = (e) => {
-
+    const submit = (data) => {
+        console.log( data );
     }
-    const submit = data => console.log(data);
-
+    // const handeLogin = async () => {
+    //     let result = await fetch('{{url}}/user/login', {
+    //         method: 'post',
+    //         body: JSON.stringify({ user }),
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         }
+    //     });
+    //     result = await result.json();
+    //     console.warn(result);
+    //   }
     // React.useEffect(() => {
     //     axios.post(baseURL).then((response) => {
     //         setPost(response.data);

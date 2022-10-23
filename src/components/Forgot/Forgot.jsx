@@ -3,11 +3,17 @@ import { useForm } from "react-hook-form";
 import Logo from '../Logo/Logo';
 import Input from '../../hooks/HookForm/Input/Input';
 import Button from '../../hooks/HookForm/Button/Button';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { forgot } from '../../utils/Validation/yup';
 //style
 import "./Forgot.css"
 
 const Forgot = () => {
-    const { register,handleSubmit, formState: { errors } } = useForm();
+    const { register,handleSubmit, formState: { errors } } = useForm(
+        {
+            resolver: yupResolver(forgot),
+        }
+    );
     const onSubmit = data => console.log(data);
     return (
         <div className='main mainLogin forgot'>
@@ -17,6 +23,7 @@ const Forgot = () => {
             <div className='form'>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <Input placeholder='email@gmail.com' register={register} value="Email" name="email" type="email" />
+                    {errors.email && <p className='error'>{errors.email.message}</p>}
                     <Button value="Send Code " path='/checkEmail' />
                 </form>
             </div>
