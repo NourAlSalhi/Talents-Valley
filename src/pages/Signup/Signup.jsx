@@ -7,9 +7,11 @@ import Button from '../../hooks/HookForm/Button/Button';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { registerAccountSchema } from '../../utils/Validation/yup';
 import { Link } from "react-router-dom";
+import axios from "axios";
 //style
 import "./signup.css"
-
+//constant
+const baseURL = "https://talents-valley.herokuapp.com/api/user/signup";
 const Signup = () => {
     //hook
     const { register, handleSubmit, formState: { errors } } = useForm(
@@ -18,13 +20,29 @@ const Signup = () => {
         }
     );
     //function
-    const submit = data => console.log(data);
+    // const submit = data => console.log(data);
+
+    const handelSubmit = (data) => {
+        axios
+            .post(baseURL, {
+                firstName: data.firstName,
+                lastName: data.lastName,
+                email: data.email,
+                mobile: data.phoneNumber,
+                password: data.newPassword,
+                country: data.cuntry,
+
+            })
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
+    }
+
     return (
         <div className=' main mainSign'>
             <Logo />
             <h4>Create Your Account</h4>
             <div className='form'>
-                <form onSubmit={handleSubmit(submit)}>
+                <form onSubmit={handleSubmit(handelSubmit)}>
                     <div className='fullName'>
                         <div className='firstName inputName'>
                             <label className='logLabel'>First Name</label>

@@ -11,10 +11,9 @@ import axios from "axios";
 //style
 import "./login.css"
 //constant
-// const baseURL = "https://talents-valley.herokuapp.com/api";
+const baseURL = "https://talents-valley.herokuapp.com/api/user/login";
 const Login = () => {
     //state
-    // const [user, setUser] = useState()
     //hook
     const { register, handleSubmit, formState: { errors } } = useForm(
         {
@@ -23,13 +22,25 @@ const Login = () => {
     );
 
     //function
-    const submit = (data) => {
-        console.log( data );
+    // const submit = (data) => {
+    //     console.log(data);
+    // }
+    const handelSubmit = (data) => {
+        axios
+            .post(baseURL, {
+                email: data.email,
+                password: data.password,
+            })
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
     }
-    // const handeLogin = async () => {
-    //     let result = await fetch('{{url}}/user/login', {
+    // const handeLogin = async (data) => {
+    //     let result = await fetch(baseURL, {
     //         method: 'post',
-    //         body: JSON.stringify({ user }),
+    //         body: JSON.stringify({ 
+    //             email: data.email,
+    //             password: data.password,
+    //          }),
     //         headers: {
     //             'Content-Type': 'application/json'
     //         }
@@ -37,18 +48,14 @@ const Login = () => {
     //     result = await result.json();
     //     console.warn(result);
     //   }
-    // React.useEffect(() => {
-    //     axios.post(baseURL).then((response) => {
-    //         setPost(response.data);
-    //     });
-    // }, []);
+
 
     return (
         <div className='main mainLogin'>
             <Logo />
             <h4>Login to Your Account</h4>
             <div className='form'>
-                <form onSubmit={handleSubmit(submit)}>
+                <form onSubmit={handleSubmit(handelSubmit)}>
                     <Input placeholder='email@gmail.com' register={register} value="Email" name="email" type="email" />
                     {errors.email && <p className='error'>{errors.email.message}</p>}
                     <Password label="Password" register={register} name='password' />

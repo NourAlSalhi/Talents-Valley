@@ -13,6 +13,7 @@ const Password = (props) => {
   const { register } = useForm();
   //state
   const [passwordShow, setPasswordShow] = useState(false);
+  
   //functions
   const PasswordVisiblity = () => {
     setPasswordShow(passwordShow ? false : true);
