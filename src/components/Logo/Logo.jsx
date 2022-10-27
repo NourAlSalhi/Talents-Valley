@@ -1,13 +1,13 @@
 import React from 'react'
 import logo from "../../assets/images/logo.png"
 //style
-import "./Logo.css"
+import { Container } from './LogoStyle'
 function Logo() {
     return (
-            <div className='headLogo'>
-                <img src={logo} alt='logo' />
-                <h3>Talents Valley</h3>
-            </div>
+        <Container>
+            <img src={logo} alt='logo' />
+            <h3>Talents Valley</h3>
+        </Container>
     )
 }
 

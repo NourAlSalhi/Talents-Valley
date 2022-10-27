@@ -1,15 +1,13 @@
 import React from 'react'
 //style
-import "./footer.css"
+import { FooterWeb } from './FooterStyle'
 const Footer = () => {
     return (
-        <div>
-            <div className='foo'>
-                <p>Talents Valley</p>
-                <p>Contacts</p>
-                <p>Privacy & Terms</p>
-            </div>
-        </div>
+        <FooterWeb>
+            <p>Talents Valley</p>
+            <p>Contacts</p>
+            <p>Privacy & Terms</p>
+        </FooterWeb>
     )
 }
 

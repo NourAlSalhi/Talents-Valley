@@ -9,8 +9,8 @@ export const registerAccountSchema = yup.object({
     firstName: yup.string().required('this field must be an first name').trim(),
     lastName: yup.string().required('this field must be an last name').trim(),
     email: yup.string().email().required('this field must be an email').trim(),
-    newPassword: yup.string().min(6, 'must be more than 6 charterer').max(10).required().trim(),
-    phoneNumber: yup.number().required('this field must be a number'),
+    newPassword: yup.string().matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).{6,20}$/, 'password weak').required("this field must be a password").trim(),
+    // phoneNumber: yup.string().required('this field must be a number'),
     cuntry: yup.string().required(),
 }).required();
 

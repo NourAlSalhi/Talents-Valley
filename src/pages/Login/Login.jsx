@@ -1,15 +1,16 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useForm } from 'react-hook-form';
+import { loginSchema } from '../../utils/Validation/yup';
+import { Link } from "react-router-dom";
+import axios from "axios";
+import { yupResolver } from '@hookform/resolvers/yup';
+//components
 import Logo from '../../components/Logo/Logo';
 import Input from '../../hooks/HookForm/Input/Input';
 import Password from '../../hooks/HookForm/Password/Password';
 import Button from '../../hooks/HookForm/Button/Button';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { loginSchema } from '../../utils/Validation/yup';
-import { Link } from "react-router-dom";
-import axios from "axios";
 //style
-import "./login.css"
+import { Container, FooterSign, Title } from './LoginStyle'
 //constant
 const baseURL = "https://talents-valley.herokuapp.com/api/user/login";
 const Login = () => {
@@ -51,23 +52,23 @@ const Login = () => {
 
 
     return (
-        <div className='main mainLogin'>
+        <Container style={{height: '821px',}}>
             <Logo />
-            <h4>Login to Your Account</h4>
+            <Title>Login to Your Account</Title>
             <div className='form'>
                 <form onSubmit={handleSubmit(handelSubmit)}>
                     <Input placeholder='email@gmail.com' register={register} value="Email" name="email" type="email" />
-                    {errors.email && <p className='error'>{errors.email.message}</p>}
+                    {errors.email && <p style={{ color: 'red' }}>{errors.email.message}</p>}
                     <Password label="Password" register={register} name='password' />
-                    {errors.password && <p className='error'> {errors.password.message} </p>}
+                    {errors.password && <p style={{ color: 'red' }}> {errors.password.message} </p>}
                     <Link className='forget' to="/forgot">Forgot Password?</Link>
                     <Button value='Sign In ' path="/" type="submit" />
                 </form>
-                <div className='logAccount'>
+                <FooterSign>
                     <p>Don't have an account?<span><Link className='sign' to="/signup">Sign up</Link></span> </p>
-                </div>
+                </FooterSign>
             </div>
-        </div>
+        </Container>
     )
 }
 

@@ -5,8 +5,10 @@ import Logo from '../Logo/Logo'
 import { yupResolver } from '@hookform/resolvers/yup';
 import { resetPassword } from '../../utils/Validation/yup';
 import { useForm } from 'react-hook-form'
-
-const NewPassword = () => {
+//style
+import { Container, Title } from '../../pages/Login/LoginStyle'
+//constant
+const ResetPassword = () => {
     const { register, handleSubmit, formState: { errors } } = useForm(
         {
             resolver: yupResolver(resetPassword),
@@ -14,9 +16,9 @@ const NewPassword = () => {
     )
     const submit = data => console.log(data)
     return (
-        <div className='mainLogin main'>
+        <Container style={{ height: '821px', }}>
             <Logo />
-            <h4>Create New Password</h4>
+            <Title>Create New Password</Title>
             <form onSubmit={handleSubmit(submit)}>
                 <Password label="New Password" name='newPassword' register={register} />
                 {errors.newPassword && <p className='error'>{errors.newPassword.message}</p>}
@@ -24,8 +26,8 @@ const NewPassword = () => {
                 {errors.confirmPassword && <p className='error'>{errors.confirmPassword.message}</p>}
                 <Button path='/checkPassword' value='Continue' />
             </form>
-        </div>
+        </Container>
     )
 }
 
-export default NewPassword
+export default ResetPassword

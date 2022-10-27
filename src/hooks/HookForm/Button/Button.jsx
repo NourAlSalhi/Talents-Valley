@@ -1,12 +1,12 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 //stule
-import "./Button.css"
+import { Contanier } from './style'
 const Button = (props) => {
   return (
-    <div className='btnClick'>
+    <Contanier>
           <button type={props.type} htmlFor="btn"> <Link className='btn' id='btn'  to={props.path}>{props.value}</Link></button>
-    </div>
+    </Contanier>
   )
 }
 

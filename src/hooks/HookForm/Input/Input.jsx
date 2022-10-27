@@ -1,12 +1,12 @@
 import React from 'react'
 //style
-import './Input.css'
+import { Label,InputStyle } from './style'
 
 const Input = (props) => {
     return (
-        <div className='logInput'>
-            <label className='logLabel'>{props.value}</label>
-            <input
+        <div style={{marginTop:'35px'}}>
+            <Label className='logLabel'>{props.value}</Label>
+            <InputStyle
                 placeholder={props.placeholder}
                 type={props.type}
                 name={props.name}

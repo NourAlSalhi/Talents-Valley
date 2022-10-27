@@ -1,7 +1,9 @@
-.checkEmail p {
-    font-size: larger;
-    line-height: 2;
-    margin-bottom: 48px;
+import styled from 'styled-components';
+
+export const Main = styled.div`
+.para {
+    font-size: 18px;
+    margin-bottom: 58px;
     color: #707070;
 }
 
@@ -18,3 +20,7 @@
     font-size: x-large;
     margin: 0 -35px 0 50px;
 }
+Button {
+    margin-top: 96px;
+}
+`
