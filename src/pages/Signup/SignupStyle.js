@@ -11,42 +11,24 @@ export const Main = styled.div`
     }
     .form select,
     .inputName input {
+        height: 60px;
         font-size: medium;
         border: 1px solid #BEC2C6;
         border-radius: 7px;
     }
     .form select {
-        height: 60px;
         padding: 20px;
         margin-top: 10px;
     }
-    // style PhoneInput
-    .phoneInput,.logInput {
+    .logInput {
         margin-top:35px
     }
-    .inputName input,.react-tel-input {
+    .inputName input{
         width: 234px;
-        height: 60px;
         margin: 9px 32px 0 0;
         padding-left: 14px;
     }
-    .react-tel-input{
-        padding-left:0px;
-    }
-    .form-control{
-        font-size: 18px;
-        height: 60px;
-        width: 500px;
-        padding-left: 70px;
-    }
-    .selected-flag{
-        width:60px;
-        padding: 0 0 0 20px;
-    }
-    .flag-dropdown{
-        background-color: white;
-    }
-    .arrow{
-        visibility: hidden;
-    }
+    //style phoneInput
+    
+
 `

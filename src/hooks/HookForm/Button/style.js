@@ -8,9 +8,6 @@ button{
     border: none;
     border-radius: 7px;
     background-color: #4375FF;
-}
-
-.btn{
     color: white;
     text-decoration: none;
     font-weight: 500;

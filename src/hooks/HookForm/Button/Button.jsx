@@ -5,7 +5,7 @@ import { Contanier } from './style'
 const Button = (props) => {
   return (
     <Contanier>
-          <button type={props.type} htmlFor="btn"> <Link className='btn' id='btn'  to={props.path}>{props.value}</Link></button>
+          <button type={props.type}>{props.value}</button>
     </Contanier>
   )
 }

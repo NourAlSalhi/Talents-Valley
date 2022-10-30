@@ -27,7 +27,7 @@ const Forgot = () => {
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <Input placeholder='email@gmail.com' register={register} value="Email" name="email" type="email" />
                         {errors.email && <p className='error'>{errors.email.message}</p>}
-                        <Button value="Send Code " path='/EmailCode' />
+                        <Button value="Send Code " type='submit' />
                     </form>
                 </div>
             </Main>

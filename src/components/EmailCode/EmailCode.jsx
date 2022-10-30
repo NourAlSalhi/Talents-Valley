@@ -29,9 +29,9 @@ const EmailCode = () => {
                         <div className='codeNum'><input className='number' {...register("code4")} /> </div>
                         <div className='codeNum'><input className='number' {...register("code5")} /> </div>
                         <div className='codeNum'><input className='number' {...register("code6")} /> </div>
-                        <Button value="Continue " path="/ResetPassword" />
+                        <Button value="Continue " type='submit'/>
                         <FooterSign>
-                            <p>Didn't get the code?<span><Link className='sign' to="/checkEmail">Resend</Link></span> </p>
+                            <p>Didn't get the code?<span><Link className='sign' to="/emailCode">Resend</Link></span> </p>
                         </FooterSign>
                     </form>
                 </div>
