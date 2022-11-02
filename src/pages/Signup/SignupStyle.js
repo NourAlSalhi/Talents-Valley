@@ -19,6 +19,7 @@ export const Main = styled.div`
     .form select {
         padding: 20px;
         margin-top: 10px;
+        appearance:none;
     }
     .logInput {
         margin-top:35px
@@ -29,6 +30,31 @@ export const Main = styled.div`
         padding-left: 14px;
     }
     //style phoneInput
-    
+    .PhoneInput{
+        margin-top:10px;
+        border-radius: 7px;
+        border: 1px solid #BEC2C6;
+        height: 60px;
+    }
+    .PhoneInputCountrySelectArrow{
+        visibility: hidden;
+    }
+    .PhoneInputInput{
+        width: 100%;
+        padding: 10px;
+        font-size: 18px;
+        border:none;
+    }
+    .PhoneInputCountry{
+        border-right: 1px solid #BEC2C6;
+        width: 15%;
+    }
+    .PhoneInputCountryIcon--border{
+        box-shadow:none;
+        margin-left: 20px;
+        width:30px;
+        height:30px;
+        background-color:white;
+    } 
 
 `

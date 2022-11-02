@@ -1,5 +1,5 @@
-import {Routes,Route} from 'react-router-dom'
-import React,{ useState }  from 'react';
+import { Routes, Route } from 'react-router-dom'
+import React from 'react';
 //components
 import Login from './pages/Login/Login';
 import Signup from './pages/Signup/Signup';
@@ -8,21 +8,23 @@ import Forgot from './components/Forgot/Forgot';
 import EmailCode from './components/EmailCode/EmailCode';
 import PasswordCheck from './components/PasswordCheck/PasswordCheck';
 import ResetPassword from './components/ResetPassword/ResetPassword';
+import PrivateRoutes from './components/PrivateRoutes/PrivateRoutes';
+import Home from './pages/Home/Home';
 //style
 import './App.css';
 const App = () => {
-
   return (
     <div className="App">
       <Routes>
-      <Route path='/' element={<Login/>} />
-      <Route path='/signup' element={<Signup/>} />
-      <Route path='/forgot' element={<Forgot/>} />
-      <Route path='/emailCode' element={<EmailCode/>} />
-      <Route path='/resetPassword' element={<ResetPassword/>} />
-      <Route path='/checkPassword' element={<PasswordCheck/>} />
-     </Routes>
-     <Footer />
+        <Route path='/' element={<Login />} />
+        <Route path='/signup' element={<Signup />} />
+        <Route path='/forgot' element={<Forgot />} />
+        <Route path='/emailCode' element={<EmailCode />} />
+        <Route path='/resetPassword' element={<ResetPassword />} />
+        <Route path='/checkPassword' element={<PasswordCheck />} />
+        <Route path='/home' element={<Home/>} />
+      </Routes>
+      <Footer />
     </div>
   );
 }

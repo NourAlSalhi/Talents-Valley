@@ -13,6 +13,7 @@ const EmailCode = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     //function
     const onSubmit = data => console.log(data);
+    
 
     return (
         <Container style={{ height: '821px', }}>

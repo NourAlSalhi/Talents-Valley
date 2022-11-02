@@ -5,6 +5,9 @@ import "react-phone-number-input/style.css";
 import PhoneInputWithCountry from "react-phone-number-input/react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import { registerAccountSchema } from '../../utils/Validation/yup';
+import { Navigate } from "react-router-dom";
+import { getCountries } from 'react-phone-number-input/input'
+import en from 'react-phone-number-input/locale/en.json'
 import axios from "axios";
 //components
 import Logo from '../../components/Logo/Logo';
@@ -25,6 +28,7 @@ const style = {
 }
 const Signup = () => {
     //state
+    const [country, setCountry] = useState();
     const [user, setUser] = useState()
     //hook
     const { register, control, handleSubmit, formState: { errors } } = useForm(
@@ -33,7 +37,7 @@ const Signup = () => {
         }
     );
     //function
-    const submit = data => console.log(data);
+    // const submit = data => console.log(data);
 
     // const handelSubmit = (dataUser) => {
     //     axios
@@ -76,11 +80,15 @@ const Signup = () => {
                     .then((resp) => {
                         console.log(resp)
                         localStorage.setItem("token", JSON.stringify(resp.data));  //resp.data.accessToken
+                        setUser(true)
                     })
             })
             .catch((error) => {
                 console.log(error);
             });
+    }
+    if (user) {
+        return <Navigate to='/'/>;
     }
 
     return (
@@ -94,25 +102,25 @@ const Signup = () => {
                             <div className='firstName inputName'>
                                 <Label>First Name</Label>
                                 <input placeholder='Enter first name ' type="text" {...register("firstName")} />
-                                {errors.firstName && <p className='error' style={{ color: 'red' }}>{errors.firstName.message}</p>}
+                                {errors.firstName && <p style={{ color: 'red' }}>{errors.firstName.message}</p>}
                             </div>
                             <div className='lastName inputName'>
                                 <Label>Last Name</Label>
                                 <input placeholder='Enter last name ' type="text" {...register("lastName")} />
-                                {errors.lastName && <p className='error' style={{ color: 'red' }}>{errors.lastName.message}</p>}
+                                {errors.lastName && <p style={{ color: 'red' }}>{errors.lastName.message}</p>}
                             </div>
                         </div>
                         <Input placeholder='email@gmail.com' register={register} value="Email" name="email" type="email" />
                         {errors.email && <p className='error' style={{ color: 'red' }}>{errors.email.message}</p>}
                         <Password label="Password" register={register} name='newPassword' />
-                        {/* {errors.newPassword && <p style={{ color: "red" }}> req </p>} */}
-                        {errors.newPassword && errors.newPassword.type === "matches" && (
-                            <p style={{ color: "green" }}>week</p>
+                        {errors.newPassword && <p style={{ color: 'red' }}>{errors.newPassword.message}</p>}
+                        {/* {errors.newPassword && errors.newPassword.type === "matches" && (
+                            <p style={{ color: "red" }}>Password should be at least 8 characters long.</p>
                         )}
-                        {errors.newPassword && errors.newPassword?.type === "required" && (
-                            <p>Your input is required</p>
-                        )}
-                        <div className='phoneInput'>
+                        {errors.newPassword && errors.newPassword.type === "required" && (
+                            <p style={{ color: "red" }}> Password should be at least 8 characters long.</p>
+                        )} */}
+                        <div className='logInput'>
                             <Label>Phone Number</Label>
                             <PhoneInputWithCountry
                                 international
@@ -121,19 +129,25 @@ const Signup = () => {
                                 control={control}
                                 rules={{ required: true }}
                             />
-                            {errors.mobile && <p className='error' style={{color: 'red'}}>{errors.mobile.message}</p>}
+                            {errors.mobile && <p style={{ color: 'red' }}>{errors.mobile.message}</p>}
                         </div>
                         <div className='logInput'>
-                            <Label>country</Label>
-                            <select  {...register("country")}>
-                                <option value=""></option>
-                                <option value="UAE">UAE</option>
-                                <option value="Germany">Germany</option>
-                                <option value="Turkey">Turkey</option>
+                            <Label>Country</Label>
+                            <select
+                                {...register("country")}
+                                value={country}
+                                onChange={event => setCountry(event.target.value || undefined)}>
+                                <option value="">
+                                    {en['ZZ']}
+                                </option>
+                                {getCountries().map((country) => (
+                                    <option key={country} value={country}>
+                                        {en[country]}
+                                    </option>
+                                ))}
                             </select>
-                            {errors.country && <p className='error' style={{ color: 'red' }}>{errors.country.message}</p>}
                         </div>
-                        <Button value="Sign Up" type='submit'/>
+                        <Button value="Sign Up" type='submit' />
                         <FooterSign>
                             <p>Already have an account?<span><Link className='sign' to="/">Sign in</Link></span></p>
                         </FooterSign>

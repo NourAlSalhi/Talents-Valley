@@ -4,19 +4,19 @@ import { loginSchema } from '../../utils/Validation/yup';
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { yupResolver } from '@hookform/resolvers/yup';
+import { Navigate } from "react-router-dom";
 //components
 import Logo from '../../components/Logo/Logo';
 import Input from '../../hooks/HookForm/Input/Input';
 import Password from '../../hooks/HookForm/Password/Password';
 import Button from '../../hooks/HookForm/Button/Button';
-import Home from '../Home/Home'
 //style
 import { Container, FooterSign, Title } from './LoginStyle'
 //constant
 const baseURL = "https://talents-valley.herokuapp.com/api/user/login";
 const Login = () => {
     //state
-    const [user, setUser] = useState()
+    const [user, setUser] = useState(false)
     //hook
     const { register, handleSubmit, formState: { errors } } = useForm(
         {
@@ -59,7 +59,9 @@ const Login = () => {
                 response.json()
                     .then((resp) => {
                         console.log(resp)
-                        localStorage.setItem("token", JSON.stringify(resp.data.accessToken));  //resp.data.accessToken
+                        localStorage.setItem("token", JSON.stringify(resp.data.accessToken)); 
+                        setUser(true)
+                        //resp.data.accessToken
                     })
             })
             .catch((error) => {
@@ -74,7 +76,7 @@ const Login = () => {
     //     }
     // }, []);
     if (user) {
-        return <div> is login </div>;
+        return <Navigate to='/home' />;
     }
     return (
         <Container style={{ height: '821px', }}>
