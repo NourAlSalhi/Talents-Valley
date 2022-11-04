@@ -14,13 +14,12 @@ import { Main } from './ForgotStyle';
 const baseURL = 'https://talents-valley.herokuapp.com/api/user/password/forgot'
 const Forgot = () => {
     const navigate = useNavigate();
-
     const { register, handleSubmit, formState: { errors } } = useForm(
         {
             resolver: yupResolver(forgot),
         }
     );
-    const onSubmit = data => console.log(data);
+    //const onSubmit = data => console.log(data);
 
     const handelForgot = (data) => {
         fetch(baseURL, {
@@ -33,8 +32,7 @@ const Forgot = () => {
             }),
         })
             .then(response => response.json())
-            .then(res => console.log(res.data._id))
-
+            .then(res => navigate('/emailCode',{state:{id:res.data._id}}))
     }
 
     return (

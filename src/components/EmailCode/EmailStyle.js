@@ -1,6 +1,13 @@
 import styled from 'styled-components';
 
 export const Main = styled.div`
+.contNum{
+    display:flex;
+}
+.codeNum1{
+    margin-right: 30px;
+    margin-left:20px;
+}
 .para {
     font-size: 18px;
     margin-bottom: 58px;
@@ -12,13 +19,14 @@ export const Main = styled.div`
 }
 
 .number {
-    width: 50px;
-    height: 50px;
-    border: none;
+    width: 60px;
+    height: 60px;
+    border: 1px solid #D4D4D4;
+    border-radius: 5px;
     text-align: center;
-    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
     font-size: x-large;
-    margin: 0 -35px 0 50px;
+    margin-right:10px;
 }
 Button {
     margin-top: 96px;

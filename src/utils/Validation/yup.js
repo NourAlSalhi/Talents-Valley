@@ -19,7 +19,7 @@ export const forgot = yup.object({
 }).required();
 
 export const resetPassword = yup.object({
-    newPassword: yup.string().min(6, 'must be more than 6 charterer').max(10).required().trim(),
-    confirmPassword: yup.string().oneOf([yup.ref('newPassword')], 'passwords must match').required().trim(),
+    newPassword: yup.string().trim(),
+    confirmPassword: yup.string().oneOf([yup.ref('newPassword')], 'passwords must match').trim(),
 })
 

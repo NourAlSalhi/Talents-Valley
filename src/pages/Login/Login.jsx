@@ -2,70 +2,45 @@ import React, { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form';
 import { loginSchema } from '../../utils/Validation/yup';
 import { Link } from "react-router-dom";
-import axios from "axios";
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Navigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
+import axios from "axios";
 //components
 import Logo from '../../components/Logo/Logo';
 import Input from '../../hooks/HookForm/Input/Input';
 import Password from '../../hooks/HookForm/Password/Password';
 import Button from '../../hooks/HookForm/Button/Button';
 //style
-import { Container, FooterSign, Title } from './LoginStyle'
+import { Container, FooterSign, Title } from './LoginStyle';
 //constant
-const baseURL = "https://talents-valley.herokuapp.com/api/user/login";
+const baseURL = 'https://talents-valley.herokuapp.com/api/user/login';
 const Login = () => {
+    const navigate = useNavigate();
     //state
-    const [user, setUser] = useState(false)
+    const [err,setError]=useState();
     //hook
-    const { register, handleSubmit, formState: { errors } } = useForm(
-        {
-            resolver: yupResolver(loginSchema),
-        }
-    );
+    const { register, handleSubmit, formState: { errors } } = useForm();
     //function
-    // const handelLogin = (dataUser) => {
-    //     axios
-    //         .post(baseURL, {
-    //             email: dataUser.email,
-    //             password: dataUser.password,
-    //         })
-    //         .then(response => {
-    //             setUser(response.data)
-    //             localStorage.setItem("token", JSON.stringify(response.data));
-    //             console.log(response)
-    //         })
-    // }
     const handelLogin = (data) => {
         fetch(baseURL, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 email: data.email,
                 password: data.password,
             }),
         })
-            .then((response) => {
-                console.log(response);
-                if (response.status === 200) {
-                    // localStorage.setItem("token", JSON.stringify(data));
-                    setUser(response.data)
-                    console.log("sucess");
-                } else {
-                    console.log("error");
-                }
-                response.json()
-                    .then((resp) => {
-                        console.log(resp)
-                        localStorage.setItem("token", JSON.stringify(resp.data.accessToken)); 
-                        setUser(true)
-                        //resp.data.accessToken
-                    })
+            .then(response => response.json() )
+            .then( result => {
+                // localStorage.setItem("refreshToken", JSON.stringify(result.data.refreshToken));
+                if (result.statusCode >= 400)
+                setError(result.message)
+              else if(result.statusCode < 400 )
+               {navigate('/home')}
+               localStorage.setItem("token", JSON.stringify(result.data.accessToken));
             })
-            .catch((error) => {
-                console.log(error);
+            .catch((err) => {
+                console.log(err);
             });
     }
     // useEffect(() => {
@@ -75,9 +50,6 @@ const Login = () => {
     //         setUser(foundUser);
     //     }
     // }, []);
-    if (user) {
-        return <Navigate to='/home' />;
-    }
     return (
         <Container style={{ height: '821px', }}>
             <Logo />
@@ -85,9 +57,10 @@ const Login = () => {
             <div className='form'>
                 <form onSubmit={handleSubmit(handelLogin)}>
                     <Input placeholder='email@gmail.com' register={register} value="Email" name="email" type="email" />
-                    {errors.email && <p style={{ color: 'red' }}>{errors.email.message}</p>}
+                    {/* {errors.email && <p style={{ color: 'red' }}>{errors.email.message}</p>} */}
                     <Password label="Password" register={register} name='password' />
-                    {errors.password && <p style={{ color: 'red' }}> {errors.password.message} </p>}
+                    {/* {errors.password && <p style={{ color: 'red' }}> {errors.password.message} </p>} */}
+                    <p style={{ color: 'red' }}>{err}</p>
                     <Link className='forget' to="/forgot">Forgot Password?</Link>
                     <Button value='Sign In ' type="submit" />
                 </form>

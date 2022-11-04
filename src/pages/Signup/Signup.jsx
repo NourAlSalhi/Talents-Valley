@@ -5,7 +5,7 @@ import "react-phone-number-input/style.css";
 import PhoneInputWithCountry from "react-phone-number-input/react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import { registerAccountSchema } from '../../utils/Validation/yup';
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { getCountries } from 'react-phone-number-input/input'
 import en from 'react-phone-number-input/locale/en.json'
 import axios from "axios";
@@ -29,7 +29,8 @@ const style = {
 const Signup = () => {
     //state
     const [country, setCountry] = useState();
-    const [user, setUser] = useState()
+    const navigate = useNavigate();
+    const [error, setError] = useState('');
     //hook
     const { register, control, handleSubmit, formState: { errors } } = useForm(
         {
@@ -55,10 +56,8 @@ const Signup = () => {
 
     const handelSignup = (data) => {
         fetch(baseURL, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 firstName: data.firstName,
                 lastName: data.lastName,
@@ -68,29 +67,15 @@ const Signup = () => {
                 country: data.country,
             }),
         })
-            .then((response) => {
-                console.log(response);
-                if (response.status === 200) {
-                    setUser(response.data)
-                    console.log("sucess");
-                } else {
-                    console.log("error");
-                }
-                response.json()
-                    .then((resp) => {
-                        console.log(resp)
-                        localStorage.setItem("token", JSON.stringify(resp.data));  //resp.data.accessToken
-                        setUser(true)
-                    })
+            .then((response) => response.json())
+            .then((result) => {
+                localStorage.setItem("token", JSON.stringify(result.data.accessToken));
+                navigate('/');
             })
             .catch((error) => {
                 console.log(error);
             });
     }
-    if (user) {
-        return <Navigate to='/'/>;
-    }
-
     return (
         <Container style={style}>
             <Main>
@@ -151,6 +136,7 @@ const Signup = () => {
                         <FooterSign>
                             <p>Already have an account?<span><Link className='sign' to="/">Sign in</Link></span></p>
                         </FooterSign>
+                        <p>{error}</p>
                     </form>
                 </div>
             </Main>
