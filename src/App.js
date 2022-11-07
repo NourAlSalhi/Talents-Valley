@@ -10,6 +10,7 @@ import PasswordCheck from './components/PasswordCheck/PasswordCheck';
 import ResetPassword from './components/ResetPassword/ResetPassword';
 import PrivateRoutes from './components/PrivateRoutes/PrivateRoutes';
 import Home from './pages/Home/Home';
+import Verification from './components/Verification/Verification';
 //style
 import './App.css';
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
         <Route path='/resetPassword' element={<ResetPassword />} />
         <Route path='/checkPassword' element={<PasswordCheck />} />
         <Route path='/home' element={<Home/>} />
+        <Route path='/verification' element={<Verification/>} />
       </Routes>
       <Footer />
     </div>

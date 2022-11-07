@@ -19,7 +19,7 @@ export const forgot = yup.object({
 }).required();
 
 export const resetPassword = yup.object({
-    newPassword: yup.string().trim(),
-    confirmPassword: yup.string().oneOf([yup.ref('newPassword')], 'passwords must match').trim(),
+    ResetPassword: yup.string().required().trim(),
+    confirmPassword: yup.string().oneOf([yup.ref('ResetPassword')], 'password must match').required().trim(),
 })
 

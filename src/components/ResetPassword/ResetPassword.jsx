@@ -14,12 +14,12 @@ const baseURL = 'https://talents-valley.herokuapp.com/api/user/password/recover'
 const ResetPassword = () => {
     const navigate = useNavigate();
     const location = useLocation();
-    const token = location.state.recoverToken;
+    const token = location.state.Token;
     const [err,setError]=useState()
     const { register, handleSubmit, formState: { errors } } = useForm(
-        // {
-        //     resolver: yupResolver(resetPassword),
-        // }
+        {
+            resolver: yupResolver(resetPassword),
+        }
     )
     //function
     const handelReset = (data) => {
@@ -49,9 +49,8 @@ const ResetPassword = () => {
             <Title>Create New Password</Title>
             <form onSubmit={handleSubmit(handelReset)}>
                 <Password label="New Password" name='ResetPassword' register={register} />
-                {/* {errors.newPassword && <p className='error'>{errors.newPassword.message}</p>} */}
                 <Password label='Re-Enter Password' name='confirmPassword' register={register} />
-                {/* {errors.confirmPassword && <p className='error'>{errors.confirmPassword.message}</p>} */}
+                {errors.confirmPassword && <p>{errors.confirmPassword.message}</p>}
                 <p>{err}</p>
                 <Button path='/checkPassword' value='Continue' />
             </form>
