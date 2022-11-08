@@ -10,7 +10,7 @@ import { getCountries } from 'react-phone-number-input/input'
 import en from 'react-phone-number-input/locale/en.json'
 import axios from "axios";
 //components
-import Logo from '../../components/Logo/Logo';
+import Logo from '../../components/login&Signup/Logo/Logo';
 import Input from '../../hooks/HookForm/Input/Input';
 import Password from '../../hooks/HookForm/Password/Password';
 import Button from '../../hooks/HookForm/Button/Button';

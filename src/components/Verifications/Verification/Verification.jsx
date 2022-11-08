@@ -1,9 +1,9 @@
 import React from 'react'
-import Header from '../Header/Header'
+import Header from '../../Header/Header'
 
 //style
 import { Main, Title } from './VerificationStyle';
-import { Container } from '../../pages/Login/LoginStyle';
+import { Container } from '../../../pages/Login/LoginStyle';
 //constant
 const mystyle = {
   height:'834px',
@@ -12,7 +12,7 @@ const mystyle = {
 };
 const Verification = () => {
   return (
-    <div>
+    <>
       <Header/>
       <Container style={mystyle}>
         <Main>
@@ -20,7 +20,7 @@ const Verification = () => {
        <p>To use our services, We need to verify your account</p>
        </Main>
       </Container>
-    </div>
+    </>
   )
 }
 

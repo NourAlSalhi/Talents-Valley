@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 //components
-import Button from '../../hooks/HookForm/Button/Button';
+import Button from '../../../hooks/HookForm/Button/Button';
 import Logo from '../Logo/Logo';
 //style
-import { Container, FooterSign, Title } from '../../pages/Login/LoginStyle';
+import { Container, FooterSign, Title } from '../../../pages/Login/LoginStyle';
 import { Main } from './EmailStyle';
 //constant
 const baseURL = 'https://talents-valley.herokuapp.com/api/user/password/verify-code';

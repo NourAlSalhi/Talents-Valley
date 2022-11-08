@@ -1,9 +1,9 @@
 import React from 'react'
 import Logo from '../Logo/Logo'
-import Button from '../../hooks/HookForm/Button/Button'
-import check from "../../assets/images/check.png"
+import Button from '../../../hooks/HookForm/Button/Button'
+import check from "../../../assets/images/check.png"
 //style
-import { Container, Title } from '../../pages/Login/LoginStyle'
+import { Container, Title } from '../../../pages/Login/LoginStyle'
 import { Main } from './CheckPasStyle'
 //constant
 const PasswordCheck = () => {

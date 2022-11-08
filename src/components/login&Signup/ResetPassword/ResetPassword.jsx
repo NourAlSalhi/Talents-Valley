@@ -1,14 +1,14 @@
 import React,{useState} from 'react'
-import Button from '../../hooks/HookForm/Button/Button'
-import Password from '../../hooks/HookForm/Password/Password'
+import Button from '../../../hooks/HookForm/Button/Button'
+import Password from '../../../hooks/HookForm/Password/Password'
 import Logo from '../Logo/Logo'
 import { yupResolver } from '@hookform/resolvers/yup';
-import { resetPassword } from '../../utils/Validation/yup';
+import { resetPassword } from '../../../utils/Validation/yup';
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 //style
-import { Container, Title } from '../../pages/Login/LoginStyle'
+import { Container, Title } from '../../../pages/Login/LoginStyle'
 //constant
 const baseURL = 'https://talents-valley.herokuapp.com/api/user/password/recover'
 const ResetPassword = () => {

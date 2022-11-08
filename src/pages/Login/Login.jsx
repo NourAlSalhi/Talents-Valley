@@ -6,7 +6,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 //components
-import Logo from '../../components/Logo/Logo';
+import Logo from '../../components/login&Signup/Logo/Logo';
 import Input from '../../hooks/HookForm/Input/Input';
 import Password from '../../hooks/HookForm/Password/Password';
 import Button from '../../hooks/HookForm/Button/Button';

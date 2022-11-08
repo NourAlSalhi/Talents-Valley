@@ -1,14 +1,14 @@
 import React from 'react'
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
-import { forgot } from '../../utils/Validation/yup';
+import { forgot } from '../../../utils/Validation/yup';
 import { useNavigate } from 'react-router-dom';
 //components
 import Logo from '../Logo/Logo';
-import Input from '../../hooks/HookForm/Input/Input';
-import Button from '../../hooks/HookForm/Button/Button';
+import Input from '../../../hooks/HookForm/Input/Input';
+import Button from '../../../hooks/HookForm/Button/Button';
 //style
-import { Container, Title } from '../../pages/Login/LoginStyle';
+import { Container, Title } from '../../../pages/Login/LoginStyle';
 import { Main } from './ForgotStyle';
 //constant
 const baseURL = 'https://talents-valley.herokuapp.com/api/user/password/forgot'
