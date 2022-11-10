@@ -36,7 +36,7 @@ const Login = () => {
                 if (result.statusCode >= 400)
                 setError(result.message)
               else if(result.statusCode < 400 )
-               {navigate('/home')}
+               {navigate('/verification')}
                localStorage.setItem("token", JSON.stringify(result.data.accessToken));
             })
             .catch((err) => {
