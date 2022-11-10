@@ -21,6 +21,9 @@ img{
     font-size: x-large;
     margin-right:10px;
     margin-bottom: 36px;
+    &:nth-of-type(3){
+         margin-right:41px;
+    }
 }
 
 `

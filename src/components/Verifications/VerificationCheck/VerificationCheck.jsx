@@ -5,7 +5,7 @@ import Button from '../../../hooks/HookForm/Button/Button'
 //style
 import { Container } from '../../../pages/Login/LoginStyle'
 import { Main } from './CheckStyle'
-import { Title } from '../Verification/VerificationStyle'
+import { Title } from '../../../pages/Verification/VerificationStyle'
 const myStyle = {
     height: '754px',
     margin: '65px auto',

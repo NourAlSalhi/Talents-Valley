@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 //style
 import { Container,FooterSign } from '../../../pages/Login/LoginStyle'
 import { Main } from './EmailStyle'
-import { Title } from '../Verification/VerificationStyle'
+import { Title } from '../../../pages/Verification/VerificationStyle'
 const myStyle = {
   height: '754px',
   margin: '65px auto',
@@ -32,7 +32,7 @@ const EmailVerification = () => {
           <p className='para'>We have sent you a verification code to your email ****78@gmail.com</p>
           <form>
             {num.map((elem) => (
-              <input key={elem.id} className='number' type='text' />
+              <input  key={elem.id} className='number' type='text' />
             ))}
             <Button value='Continue' type="submit" />
           </form>

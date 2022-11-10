@@ -9,7 +9,7 @@ import EmailCode from './components/login&Signup/EmailCode/EmailCode';
 import PasswordCheck from './components/login&Signup/PasswordCheck/PasswordCheck';
 import ResetPassword from './components/login&Signup/ResetPassword/ResetPassword';
 import Home from './pages/Home/Home';
-import Verification from './components/Verifications/Verification/Verification';
+import Verification from './pages/Verification/Verification';
 import EmailVerification from './components/Verifications/EmailVerification/EmailVerification';
 import VerificationCheck from './components/Verifications/VerificationCheck/VerificationCheck';
 import IdVerification from './components/Verifications/IdVerification/IdVerification';
