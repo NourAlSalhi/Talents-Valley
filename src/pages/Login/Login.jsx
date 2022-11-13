@@ -24,7 +24,10 @@ const Login = () => {
     const handelLogin = (data) => {
         fetch(baseURL, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: {
+                 'Content-Type': 'application/json'
+                  
+                },
             body: JSON.stringify({
                 email: data.email,
                 password: data.password,
@@ -32,12 +35,12 @@ const Login = () => {
         })
             .then(response => response.json() )
             .then( result => {
-                // localStorage.setItem("refreshToken", JSON.stringify(result.data.refreshToken));
                 if (result.statusCode >= 400)
                 setError(result.message)
               else if(result.statusCode < 400 )
+              localStorage.setItem("token", JSON.stringify(result.data.accessToken));
+              localStorage.setItem("refreshToken", JSON.stringify(result.data.refreshToken));
                {navigate('/verification')}
-               localStorage.setItem("token", JSON.stringify(result.data.accessToken));
             })
             .catch((err) => {
                 console.log(err);
