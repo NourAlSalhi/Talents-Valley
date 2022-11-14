@@ -5,7 +5,7 @@ import { Label,InputStyle } from './style'
 const Input = (props) => {
 
     const errStyle = {
-        border:' 1px solid red'
+        border:' 1px solid #F50000'
         };
     return (
         <div style={{marginTop:'35px'}}>

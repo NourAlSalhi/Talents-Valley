@@ -4,7 +4,6 @@ import { loginSchema } from '../../utils/Validation/yup';
 import { Link } from "react-router-dom";
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useNavigate } from 'react-router-dom';
-import axios from "axios";
 //components
 import Logo from '../../components/login&Signup/Logo/Logo';
 import Input from '../../hooks/HookForm/Input/Input';
@@ -50,13 +49,6 @@ const Login = () => {
     }
     const erremail = errors.email && errors.email.message
     const errPassword = errors.password && errors.password.message
-    // useEffect(() => {
-    //     const loggedInUser = localStorage.getItem("token");
-    //     if (loggedInUser) {
-    //         const foundUser = JSON.stringify(loggedInUser);
-    //         setUser(foundUser);
-    //     }
-    // }, []);
     return (
         <Container style={{ height: '821px', }}>
             <Logo />
@@ -64,13 +56,9 @@ const Login = () => {
             <div className='form'>
                 <form onSubmit={handleSubmit(handelLogin)}>
                     <Input err={err || erremail} placeholder='email@gmail.com' register={register} value="Email" name="email" type="email" />
-                    {errors.email && <span style={{ color: 'red' }}>{errors.email.message}</span>}
                     <Password label="Password" register={register} name='password' err={err || errPassword} />
-                    <div className='err'>
-                    {errors.password && <span style={{ color: 'red' }}> {errors.password.message} </span>}
-                    <span style={{ color: 'red' }}>{err}</span>
                     <Link className='forget' to="/forgot">Forgot Password?</Link>
-                    </div>
+                    <div className='errMsg'>{errPassword ? errPassword : err}</div>
                     <Button value='Sign In ' type="submit" />
                 </form>
                 <FooterSign>

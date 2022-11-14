@@ -18,7 +18,7 @@ const Password = (props) => {
     setPasswordShow(passwordShow ? false : true);
   };
   const errStyle = {
-    border:' 1px solid red'
+    border:' 1px solid #F50000'
     };
   return (
     <Container>
