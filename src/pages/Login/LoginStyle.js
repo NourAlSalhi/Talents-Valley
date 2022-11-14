@@ -7,10 +7,12 @@ export const Container = styled.div`
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     padding: 24px 102px 0 101px;
     margin: 109px auto 86px;
+    .err{
+        display: flex;
+        justify-content: space-between;
+    }
     .forget {
         color: #707070;
-        margin-left: 370px;
-        font-size: 16px;
         text-decoration: none;
     }
     }

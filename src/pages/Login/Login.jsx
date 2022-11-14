@@ -48,6 +48,8 @@ const Login = () => {
                 console.log(err);
             });
     }
+    const erremail = errors.email && errors.email.message
+    const errPassword = errors.password && errors.password.message
     // useEffect(() => {
     //     const loggedInUser = localStorage.getItem("token");
     //     if (loggedInUser) {
@@ -61,12 +63,14 @@ const Login = () => {
             <Title>Login to Your Account</Title>
             <div className='form'>
                 <form onSubmit={handleSubmit(handelLogin)}>
-                    <Input placeholder='email@gmail.com' register={register} value="Email" name="email" type="email" />
+                    <Input err={err || erremail} placeholder='email@gmail.com' register={register} value="Email" name="email" type="email" />
                     {errors.email && <span style={{ color: 'red' }}>{errors.email.message}</span>}
-                    <Password label="Password" register={register} name='password' />
-                        {errors.password && <span style={{ color: 'red' }}> {errors.password.message} </span>}
-                        <span style={{ color: 'red' }}>{err}</span>
-                        <Link className='forget' to="/forgot">Forgot Password?</Link>
+                    <Password label="Password" register={register} name='password' err={err || errPassword} />
+                    <div className='err'>
+                    {errors.password && <span style={{ color: 'red' }}> {errors.password.message} </span>}
+                    <span style={{ color: 'red' }}>{err}</span>
+                    <Link className='forget' to="/forgot">Forgot Password?</Link>
+                    </div>
                     <Button value='Sign In ' type="submit" />
                 </form>
                 <FooterSign>

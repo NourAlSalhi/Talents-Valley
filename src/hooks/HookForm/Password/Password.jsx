@@ -17,11 +17,15 @@ const Password = (props) => {
   const PasswordVisiblity = () => {
     setPasswordShow(passwordShow ? false : true);
   };
+  const errStyle = {
+    border:' 1px solid red'
+    };
   return (
     <Container>
       <label className='logLabel'>{props.label}</label>
       <div className='password'>
         <InputStyle
+         style={props.err && errStyle }
           name={props.name}
           type={passwordShow ? "text" : "password"} {...props.register(props.name)}
         />
