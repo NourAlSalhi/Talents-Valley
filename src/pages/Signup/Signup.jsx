@@ -69,8 +69,8 @@ const Signup = () => {
         })
             .then((response) => response.json())
             .then((result) => {
-                localStorage.setItem("token", JSON.stringify(result.data.accessToken));
-                navigate('/');
+                localStorage.setItem("token", result.data.accessToken);
+                navigate('/verification');
             })
             .catch((error) => {
                 console.log(error);

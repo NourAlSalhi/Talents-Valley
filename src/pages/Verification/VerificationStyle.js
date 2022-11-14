@@ -22,6 +22,10 @@ export const Main = styled.div`
 button{
     
 }
+.Link{
+    color:white;
+    text-decoration: none;
+}
 `
 export const Contain = styled.div`
 width:100%;

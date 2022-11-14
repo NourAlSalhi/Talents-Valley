@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import Header from '../../Header/Header'
 import Button from '../../../hooks/HookForm/Button/Button'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import phone from '../../../assets/images/phone.png'
 //style
 import { Container, FooterSign } from '../../../pages/Login/LoginStyle'
-import { Main } from './CodeStyle'
 import { Title } from '../../../pages/Verification/VerificationStyle'
+import { Main } from '../VerificationCodeEmail/CodeStyle'
 //constant
 const myStyle = {
   height: '754px',
@@ -13,15 +14,9 @@ const myStyle = {
   paddingTop: '32px',
   textAlign: 'center',
 }
-//const num = [
-//   { id: 1, name: 'input1' },
-//   { id: 2, name: 'input2' },
-//   { id: 3, name: 'input3' },
-//   { id: 4, name: 'input4' },
-//   { id: 5, name: 'input5' },
-//   { id: 6, name: 'input6' },
-// ];
-const VerificationCode = (props) => {
+const VerificationCodePhone = (props) => {
+  const navigate = useNavigate()
+  const [err, setError] = useState();
   const [code, setcode] = useState(new Array(6).fill(""));
   const finalCode = code.join("")
   //function
@@ -34,20 +29,30 @@ const VerificationCode = (props) => {
   };
   const onSubmit = (e) => {
     e.preventDefault();
-    fetch('https://talents-valley.herokuapp.com/api/user/verify/email', {
+    fetch('https://talents-valley.herokuapp.com/api/user/verify/mobile', {
       method: 'POST',
       headers: {
-         'Content-Type': 'application/json',
-         Authorization: localStorage.getItem('token'),
-        },
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
       body: JSON.stringify({
         verificationCode: finalCode,
       }),
     })
       .then((response) => response.json())
-      // .then((result) => 
-      //   navigate('/resetPassword')
-      // )
+      .then(result => {
+        if (result.statusCode >= 400)
+          setError(result.message)
+        else if (result.statusCode < 400) {
+          navigate('/verificationCheck', {
+            state: {
+              name: 'Phone Verification',
+              para: 'Your Phone Number has been Verified Successfully'
+            }
+          })
+        }
+      })
+      .then(res => console.log(res))
       .catch((error) => console.log('error', error));
   };
   return (
@@ -55,9 +60,9 @@ const VerificationCode = (props) => {
       <Header />
       <Container style={myStyle}>
         <Main>
-          <Title>{props.title}</Title>
-          <img src={props.img} alt='emailImg' />
-          <p className='para'>{props.para}</p>
+          <Title>Phone Verification</Title>
+          <img src={phone} alt='emailImg' />
+          <p className='para'>We have sent you a verification code to your phone number ********789</p>
           <form onSubmit={onSubmit}>
             {code.map((data, index) => {
               return (
@@ -75,6 +80,7 @@ const VerificationCode = (props) => {
                 />
               );
             })}
+            <p style={{ color: 'red', textAlign: 'left' }}>{err}</p>
             <Button value='Continue' type="submit" />
           </form>
           <FooterSign>
@@ -86,4 +92,4 @@ const VerificationCode = (props) => {
   )
 }
 
-export default VerificationCode
+export default VerificationCodePhone

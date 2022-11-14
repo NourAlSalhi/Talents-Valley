@@ -2,6 +2,7 @@ import React from 'react'
 import Header from '../../Header/Header'
 import check from "../../../assets/images/check.png"
 import Button from '../../../hooks/HookForm/Button/Button'
+import { useLocation } from 'react-router-dom'
 //style
 import { Container } from '../../../pages/Login/LoginStyle'
 import { Main } from './CheckStyle'
@@ -13,14 +14,17 @@ const myStyle = {
     textAlign: 'center',
   }
 const VerificationCheck = () => {
+    const location = useLocation();
+    const name = location.state.name;
+    const para = location.state.para;
     return (
         <>
         <Header/>
         <Container style={myStyle}>
             <Main>
-            <Title>Email Verification</Title>
+            <Title>{name}</Title>
             <img src={check} alt="check" />
-            <p>Your Email has been Verified Successfully</p>
+            <p>{para}</p>
             <Button value='Continue' type="submit" />
             </Main>
         </Container>
