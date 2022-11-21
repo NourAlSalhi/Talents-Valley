@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form';
 import { loginSchema } from '../../utils/Validation/yup';
-import { Link } from "react-router-dom";
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 //components
 import Logo from '../../components/login&Signup/Logo/Logo';
 import Input from '../../hooks/HookForm/Input/Input';
@@ -11,6 +10,7 @@ import Password from '../../hooks/HookForm/Password/Password';
 import Button from '../../hooks/HookForm/Button/Button';
 //style
 import { Container, FooterSign, Title } from './LoginStyle';
+const visiStyle={visibility: 'hidden'}
 //constant
 const baseURL = 'https://talents-valley.herokuapp.com/api/user/login';
 const Login = () => {
@@ -39,8 +39,10 @@ const Login = () => {
                 if (result.statusCode >= 400)
                     setError(result.message)
                 else if (result.statusCode < 400)
-                    localStorage.setItem("token", result.data.accessToken);
+                localStorage.setItem("token", result.data.accessToken);
                 localStorage.setItem("refreshToken", result.data.refreshToken);
+                localStorage.setItem("emial", result.data.user.email);
+                localStorage.setItem("mobile", result.data.user.mobile);
                 { navigate('/verification') }
             })
             .catch((err) => {
@@ -56,9 +58,12 @@ const Login = () => {
             <div className='form'>
                 <form onSubmit={handleSubmit(handelLogin)}>
                     <Input err={err || erremail} placeholder='email@gmail.com' register={register} value="Email" name="email" type="email" />
+                    {erremail ? <span style={{ color: 'red' }}>{erremail}</span> : <span style={visiStyle}>error</span>}
                     <Password label="Password" register={register} name='password' err={err || errPassword} />
-                    <Link className='forget' to="/forgot">Forgot Password?</Link>
-                    <div className='errMsg'>{errPassword ? errPassword : err}</div>
+                    <div className='err'>
+                    <span className='errMsg'>{errPassword ? errPassword : err}</span>
+                    <Link  className='forget' to="/forgot">Forgot Password?</Link>
+                    </div>
                     <Button value='Sign In ' type="submit" />
                 </form>
                 <FooterSign>

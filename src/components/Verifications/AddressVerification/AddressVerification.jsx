@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import address from '../../../assets/images/address.png'
 import { useForm } from "react-hook-form";
+import { useNavigate } from 'react-router-dom';
 import Select from '../../../hooks/HookForm/Select/Select';
 import { getCountries } from 'react-phone-number-input/input'
 import en from 'react-phone-number-input/locale/en.json'
@@ -19,8 +20,36 @@ const myStyle = {
     paddingTop: '32px',
 }
 const AddressVerification = () => {
+    const navigate = useNavigate()
+    const [err,setErr] = useState()
     const [country, setCountry] = useState();
     const { register, handleSubmit } = useForm();
+    const onSubmit = (data) => {
+        const formData = new FormData()
+        formData.append('file', data.file[0])
+        formData.append('address1', data.Address1)
+        formData.append('address2', data.Address2)
+        formData.append('city', data.city)
+        formData.append('addressDocumentType', data.document)
+        formData.append('country', data.country)
+        formData.append('otherDocumentType', data.document)
+        fetch('https://talents-valley.herokuapp.com/api/user/verify/address', {
+            method: 'POST',
+            headers: {
+                "Accept": "application/json",
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+            },
+            body: formData
+        })
+            .then((response) => response.json())
+            .then(result => {
+                if (result.statusCode >= 400)
+                    setErr(result.message)
+                else if (result.statusCode < 400)
+                 navigate('/verification') 
+            })
+            .catch((error) => console.log('error', error));
+    }
     return (
         <>
             <Header />
@@ -29,8 +58,8 @@ const AddressVerification = () => {
                     <Title>Address Verification</Title>
                     <img src={address} alt='emailImg' />
                     <p className='para'>Upload Document That Proof Your Address Such As: Bill (Phone, Electricity, Water, Bank Statement)</p>
-                    <form>
-                        <Select register={register} title='Document Type' name='Adress' option1='Phone' option2='Electricity' option3='Bank Statement' />
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                        <Select register={register} title='Document Type' name='document' option1='water_bill' option2='phone_bill' option3='bank_statement' />
                         <div className='address'>
                             <div className='address1'>
                                 <Label>Address 1</Label>
@@ -74,6 +103,7 @@ const AddressVerification = () => {
                                 Upload a File
                             </label>
                         </Upload>
+                        <span style={{color:'red'}}>{err}</span>
                         <ButtonStyle>Continue</ButtonStyle>
                     </form>
                 </Main>

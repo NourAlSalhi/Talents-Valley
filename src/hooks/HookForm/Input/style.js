@@ -15,4 +15,8 @@ font-size: 18px;
 padding-left: 14px;
 border: 1px solid #BEC2C6;
 border-radius: 7px;
+outline: none;
+&:focus: {
+    border: 1px solid green
+}
 `

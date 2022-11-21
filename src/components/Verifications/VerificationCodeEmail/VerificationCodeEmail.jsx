@@ -23,8 +23,12 @@ const myStyle = {
 //   { id: 6, name: 'input6' },
 // ];
 const VerificationCodeEmail = (props) => {
-  const [err, setError] = useState();
+  //constatnt
   const navigate = useNavigate();
+  const emaill = localStorage.getItem('email')
+  const endemail = ''
+  //state
+  const [err, setError] = useState();
   const [code, setcode] = useState(new Array(6).fill(""));
   const finalCode = code.join("")
   //function
@@ -70,7 +74,7 @@ const VerificationCodeEmail = (props) => {
         <Main>
           <Title>Email Verification</Title>
           <img src={email} alt='emailImg' />
-          <p className='para'>We have sent you a verification code to your email ****78@gmail.com</p>
+          <p className='para'>We have sent you a verification code to your email ****{endemail}@gmail.com</p>
           <form onSubmit={onSubmit}>
             {code.map((data, index) => {
               return (
@@ -81,7 +85,6 @@ const VerificationCodeEmail = (props) => {
                   name="code"
                   maxLength={1}
                   key={index}
-                  // style={data ? { borderBottom: "3px solid #7dbf2a" } : { borderBottom: "3px solid grey" }}
                   value={data}
                   onChange={(e) => handleChange(e.target, index)}
                   onFocus={(e) => e.target.select}

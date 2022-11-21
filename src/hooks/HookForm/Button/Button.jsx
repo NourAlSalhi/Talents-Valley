@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 import { ButtonStyle } from './style'
 const Button = (props) => {
   return (
-          <ButtonStyle type={props.type}>{props.value}</ButtonStyle>
+          <ButtonStyle type={props.type} onClick={props.onClick}>{props.value}</ButtonStyle>
   )
 }
 

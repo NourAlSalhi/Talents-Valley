@@ -10,12 +10,14 @@ export const Container = styled.div`
     .forget {
         color: #707070;
         text-decoration: none;
-        display:inline-block;
-        margin-left:73%;
     }
     .errMsg{
         color: red ;
-        margin-top: -20px;
+    }
+    .err{
+        width:100%;
+        display: flex;
+        justify-content: space-between;
     }
     }
 `

@@ -14,6 +14,7 @@ export const Main = styled.div`
         height: 60px;
         font-size: medium;
         border: 1px solid #BEC2C6;
+        outline: none;
         border-radius: 7px;
     }
     .form select {
@@ -44,7 +45,11 @@ export const Main = styled.div`
         padding: 10px;
         font-size: 18px;
         border:none;
+        outline: none;
     }
+    // .PhoneInputInput:foucs{
+    //     background-color:white;
+    // }
     .PhoneInputCountry{
         border-right: 1px solid #BEC2C6;
         width: 15%;
