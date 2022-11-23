@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-margin-top: 35px;
+margin-top: 30px;
 .logLabel {
     font-size: 18px;
     color: #707070;

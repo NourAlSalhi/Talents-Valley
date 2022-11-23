@@ -23,7 +23,7 @@ export const Main = styled.div`
         appearance:none;
     }
     .logInput {
-        margin-top:35px
+        margin-top:30px;
     }
     .inputName input{
         width: 234px;

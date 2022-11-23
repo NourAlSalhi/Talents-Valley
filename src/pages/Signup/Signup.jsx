@@ -55,7 +55,6 @@ const Signup = () => {
                 console.log(error);
             });
     }
-    const errPass = errors.newPassword && errors.newPassword.message
     return (
         <Container style={style}>
             <Main>
@@ -72,20 +71,23 @@ const Signup = () => {
                             <div className='lastName inputName'>
                                 <Label>Last Name</Label>
                                 <input placeholder='Enter last name ' type="text" {...register("lastName")} />
-                                {/* {errors.lastName && <p style={{ color: 'red' }}>{errors.lastName.message}</p>} */}
                             </div>
                         </div>
                         <Input placeholder='email@gmail.com' register={register} value="Email" name="email" type="email" />
-                        {/* {errors.email && <p className='error' style={{ color: 'red' }}>{errors.email.message}</p>} */}
                         <Password label="Password" register={register} name='newPassword' />
-                        {errPass ? <span style={{ color: 'red' }}>{errPass}</span> : <span style={visiStyle}>error</span>}
-                        {/* {errors.newPassword && <p style={{ color: 'red' }}>{errors.newPassword.message}</p>} */}
-                        {/* {errors.newPassword && errors.newPassword.type === "matches" && (
-                            <p style={{ color: "red" }}>Password should be at least 8 characters long.</p>
+                        <span style={visiStyle}>error</span>
+                        {errors.newPassword && errors.newPassword.type === "matches" && (
+                            <p style={{ color: "red" ,marginTop: '-20px' }}>
+                                <svg xmlns="http://www.w3.org/2000/svg" style={{marginRight: '4px'}} width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="M12.884 2.532c-.346-.654-1.422-.654-1.768 0l-9 17A.999.999 0 0 0 3 21h18a.998.998 0 0 0 .883-1.467L12.884 2.532zM13 18h-2v-2h2v2zm-2-4V9h2l.001 5H11z"/></svg>
+                                Your password is weak
+                            </p>
                         )}
                         {errors.newPassword && errors.newPassword.type === "required" && (
-                            <p style={{ color: "red" }}> Password should be at least 8 characters long.</p>
-                        )} */}
+                            <p style={{ color: "red" ,marginTop: '-20px'}}> 
+                             <svg xmlns="http://www.w3.org/2000/svg" style={{marginRight: '4px'}} width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="M12.884 2.532c-.346-.654-1.422-.654-1.768 0l-9 17A.999.999 0 0 0 3 21h18a.998.998 0 0 0 .883-1.467L12.884 2.532zM13 18h-2v-2h2v2zm-2-4V9h2l.001 5H11z"/></svg>
+                            this field must be password
+                            </p>
+                        )}
                         <div style={{marginTop:'15px'}}>
                             <Label>Phone Number</Label>
                             <PhoneInputWithCountry
@@ -94,7 +96,6 @@ const Signup = () => {
                                 name='mobile'
                                 control={control}
                             />
-                            {/* {errors.mobile && <p style={{ color: 'red' }}>{errors.mobile.message}</p>} */}
                         </div>
                         <div className='logInput'>
                             <Label>Country</Label>
@@ -111,7 +112,6 @@ const Signup = () => {
                                     </option>
                                 ))}
                             </select>
-                            {/* {errors.country && <p style={{ color: 'red' }}>{errors.country.message}</p>} */}
                         </div>
                         <Button value="Sign Up" type='submit' />
                         <FooterSign>

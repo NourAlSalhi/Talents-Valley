@@ -9,7 +9,7 @@ export const registerAccountSchema = yup.object({
     firstName: yup.string().required('this field must be an first name').trim(),
     lastName: yup.string().required('this field must be an last name').trim(),
     email: yup.string().email().required('this field must be an email').trim(),
-    newPassword: yup.string().matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).{6,20}$/,'must be strong').required().trim(),
+    newPassword: yup.string().required('must be req').matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).{6,20}$/,'must be strong').trim(),
     mobile: yup.number().required('reqq'),
     country: yup.string().required('req'),
 }).required();

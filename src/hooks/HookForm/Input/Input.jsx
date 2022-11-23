@@ -8,7 +8,7 @@ const Input = (props) => {
         border:' 1px solid #F50000'
         };
     return (
-        <div style={{marginTop:'35px'}}>
+        <div style={{marginTop:'30px'}}>
             <Label className='logLabel'>{props.value}</Label>
             <InputStyle
                 style={props.err && errStyle }

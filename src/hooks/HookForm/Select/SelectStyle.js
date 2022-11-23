@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
 display:flex;
 flex-direction: column;
-margin-top: 32px;
+margin-top: 30px;
 `
 export const SelectStyle = styled.select`
 width:100%
