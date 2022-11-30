@@ -1,7 +1,6 @@
 import React from 'react'
 //style
 import { Label,InputStyle } from './style'
-
 const Input = (props) => {
 
     const errStyle = {

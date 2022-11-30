@@ -15,6 +15,8 @@ import VerificationCodePhone from './components/Verifications/VerificationCodePh
 import VerificationCheck from './components/Verifications/VerificationCheck/VerificationCheck';
 import IdVerification from './components/Verifications/IdVerification/IdVerification';
 import AddressVerification from './components/Verifications/AddressVerification/AddressVerification';
+import  Invoiuce from './components/HomePage/Invoiuce/Invoiuce'
+import  Payout from './components/HomePage/Payout/Payout'
 //style
 import './App.css';
 
@@ -29,13 +31,15 @@ const App = () => {
         <Route path='/emailCode' element={<EmailCode />} />
         <Route path='/resetPassword' element={<ResetPassword />} />
         <Route path='/checkPassword' element={<PasswordCheck />} />
-        <Route path='/home' element={<Home />} />
         <Route path='/verification' element={<Verification />} />
         <Route path='/verificationCodeEmail' element={<VerificationCodeEmail />} />
         <Route path='/verificationCodePhone' element={<VerificationCodePhone />} />
         <Route path='/verificationCheck' element={<VerificationCheck />} />
         <Route path='/idVerification' element={<IdVerification />} />
         <Route path='/addressVerification' element={<AddressVerification />} />
+        <Route path='/home' element={<Home />} />
+        <Route path='/invoiceRecords' element={<Invoiuce />} />
+        <Route path='/payoutRecords' element={<Payout />} />
       </Routes>
       <Footer />
     </div>

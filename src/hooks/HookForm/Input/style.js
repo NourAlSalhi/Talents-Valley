@@ -12,7 +12,7 @@ width: 100%;
 height: 60px;
 margin-top: 9px;
 font-size: 18px;
-padding-left: 14px;
+padding: 0px 14px;
 border: 1px solid #BEC2C6;
 border-radius: 7px;
 outline: none;

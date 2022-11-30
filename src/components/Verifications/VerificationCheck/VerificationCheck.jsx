@@ -13,13 +13,30 @@ const myStyle = {
     paddingTop: '64px',
     textAlign: 'center',
 }
+
 const VerificationCheck = () => {
     const location = useLocation();
     const name = location.state.name;
     const para = location.state.para;
     const navigate = useNavigate();
     const onSubmit = () => {
-        navigate('/verification')
+        fetch('https://talents-valley.herokuapp.com/api/settings/profile', {
+                  method: 'GET',
+                  headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${localStorage.getItem('token')}`,
+                  }
+                })
+                  .then((response) => response.json())
+                  .then ( data => {
+                    console.log(data)
+                    localStorage.setItem("emailVerify", data.data.verifiedEmail);
+                    localStorage.setItem("mobileVerify", data.data.verifiedMobile);
+                    localStorage.setItem("user", JSON.stringify(data.data))
+                    navigate('/verification')
+                  })
+                
+                  .catch((error) => console.log('error', error));
 }
 return (
     <>

@@ -38,12 +38,16 @@ const Login = () => {
             .then(result => {
                 if (result.statusCode >= 400)
                     setError(result.message)
-                else if (result.statusCode < 400)
+                else if (result.statusCode < 400){
                 localStorage.setItem("token", result.data.accessToken);
                 localStorage.setItem("refreshToken", result.data.refreshToken);
                 localStorage.setItem("emial", result.data.user.email);
                 localStorage.setItem("mobile", result.data.user.mobile);
-                { navigate('/verification') }
+                localStorage.setItem("emailVerify", result.data.user.verifiedEmail);
+                localStorage.setItem("mobileVerify", result.data.user.verifiedMobile);
+                // localStorage.setItem("user", result.data.data);
+                 navigate('/verification') 
+                }
             })
             .catch((err) => {
                 console.log(err);

@@ -9,8 +9,8 @@ export const registerAccountSchema = yup.object({
     firstName: yup.string().required('this field must be an first name').trim(),
     lastName: yup.string().required('this field must be an last name').trim(),
     email: yup.string().email().required('this field must be an email').trim(),
-    newPassword: yup.string().required('must be req').matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).{6,20}$/,'must be strong').trim(),
-    mobile: yup.number().required('reqq'),
+    newPassword: yup.string().required('must be req').matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).{6,20}$/, 'must be strong').trim(),
+    mobile: yup.string().required('reqq'),
     country: yup.string().required('req'),
 }).required();
 
@@ -24,13 +24,15 @@ export const resetPassword = yup.object({
 })
 
 export const verifiyId = yup.object({
-    document: yup.string().required('req'),
-    id: yup.number().required('reqqqqq'),
-    // file: yup.required("You need to provide a file")
-    //     .test("fileSize", "File Size is too large", (value) => {
-    //         console.log(value[0].size);
-    //         return value[0].size <= 5242880;
-    //     }),
-    file: yup.string().required()
+    // Select: yup.string().ensure().required("document is required!"),
+    id: yup.string().required().matches(/^[0-9]+$/, "Must be only digits").max(9, 'Must be exactly 5 digits').trim(),
+    file: yup.mixed()
+        .test('required', "You need to provide a file", (value) => {
+            return value && value.length
+        })
+        .test("fileSize", "Your file is too big", (value) => {
+            return value && value[0] && value[0].size <= 200000;
+        }),
+    // })
 })
 

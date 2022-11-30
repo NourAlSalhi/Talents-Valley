@@ -1,8 +1,14 @@
 import React from 'react'
-
+import Header from '../../components/Header/Header'
+import Invoice from '../../components/HomePage/Invoiuce/Invoiuce'
+import Menu from '../../components/HomePage/Menu/Menu'
+//style
 const Home = () => {
   return (
-    <div>Home</div>
+    <div>
+      <Header />
+      <Menu/>
+    </div>
   )
 }
 

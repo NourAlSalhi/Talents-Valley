@@ -9,28 +9,22 @@ import Header from '../../components/Header/Header'
 import { Main, Title, Contain } from './VerificationStyle';
 import { Container } from '../Login/LoginStyle';
 import { ButtonStyle } from '../../hooks/HookForm/Button/style';
+
 //constant
 const mystyle = { height: '834px', margin: '65px auto 45px', padding: '32px 114px 123px 113px' };
 const Verification = () => {
   const email = localStorage.getItem('emial')
   const phone = localStorage.getItem('mobile')
+  const emailVerify = localStorage.getItem('emailVerify')
+  const mobileVerify = localStorage.getItem('mobileVerify')
+  const user = localStorage.getItem('user')
   const startPhone = phone.slice(0, 4)
   const endPhone = phone.slice(9)
-  const [isCheck, setCheck] = useState(false)
-
-  useEffect(() => {
-      fetch('https://talents-valley.herokuapp.com/api/settings/profile', {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${localStorage.getItem('token')}`,
-        }
-      })
-        .then((response) => response.json())
-        .then(() => setCheck(true))
-        .catch((error) => console.log('error', error));
-  }, [])
-
+  const navigate = useNavigate()
+  // const [isCheck, setCheck] = useState(true)
+  const handelClick = ()=>{
+    navigate('/invoiceRecords')
+  }
   //state
   return (
     <>
@@ -42,11 +36,11 @@ const Verification = () => {
           <Contain>
             <div>
               <p className='title'>Email Address</p>
-              <p className='details'>{email}<span>(not verified)</span></p>
+              <p className='details'>{email}<span style={{ color: emailVerify === "true" ? "green" : "red" }}> ({emailVerify === "true" ? "verified": "not verified"}) </span></p>
             </div>
             {/* <button onClick={onSubmit(urlEmail)}><Link className='Link' to='/verificationCodeEmail'>Verify</Link></button> */}
-            {isCheck ? <button onClick={onSubmit(urlEmail)}><Link className='Link' to='/verificationCodeEmail'>Verify</Link></button>
-              :  <img src={check} />
+            {emailVerify == 'true'? <img src={check} />
+              : <button onClick={onSubmit(urlEmail)}><Link className='Link' to='/verificationCodeEmail'>Verify</Link></button>
             }
             {/* {
               check? <img src={check} /> : 'dd'
@@ -55,9 +49,12 @@ const Verification = () => {
           <Contain style={{ marginTop: '16px' }}>
             <div>
               <p className='title'>Phone Number</p>
-              <p className='details'>{startPhone} ****** {endPhone}<span>(not verified)</span></p>
+              <p className='details'>{startPhone} ****** {endPhone}<span style={{ color: mobileVerify === "true" ? "green" : "red" }}> ({mobileVerify === "true" ? "verified": "not verified"}) </span></p>
             </div>
-            <button onClick={onSubmit(urlPhone)}><Link className='Link' to='/verificationCodePhone'>Verify</Link></button>
+            {/* <button onClick={onSubmit(urlPhone)}><Link className='Link' to='/verificationCodePhone'>Verify</Link></button> */}
+            {mobileVerify == 'true' ? <img src={check} />
+              :  <button onClick={onSubmit(urlPhone)}><Link className='Link' to='/verificationCodePhone'>Verify</Link></button>
+            }
           </Contain>
           <p className='verifPara'>You can complete the 2 following tasks later</p>
           <Contain style={{ marginTop: '16px' }}>
@@ -74,7 +71,7 @@ const Verification = () => {
             </div>
             <button><Link className='Link' to='/addressVerification'>Verify</Link></button>
           </Contain>
-          <ButtonStyle >Continue</ButtonStyle>
+          <ButtonStyle style={{backgroundColor: emailVerify&&mobileVerify =='false'?"#A7BDFB" : "#4375FF"}} disabled={emailVerify&&mobileVerify} onClick={handelClick}>Continue</ButtonStyle>
         </Main>
       </Container>
     </>

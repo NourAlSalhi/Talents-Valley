@@ -49,6 +49,9 @@ const Signup = () => {
                 localStorage.setItem("token", result.data.accessToken);
                 localStorage.setItem("emial", result.data.user.email);
                 localStorage.setItem("mobile", result.data.user.mobile);
+                localStorage.setItem("emailVerify", result.data.user.verifiedEmail);
+                localStorage.setItem("mobileVerify", result.data.user.verifiedMobile);
+                // localStorage.setItem("user", result.data.data);
                 navigate('/verification');
             })
             .catch((error) => {
@@ -112,6 +115,7 @@ const Signup = () => {
                                     </option>
                                 ))}
                             </select>
+                            {errors.country && <p style={{ color: 'red' }}>{errors.country.message}</p>} 
                         </div>
                         <Button value="Sign Up" type='submit' />
                         <FooterSign>

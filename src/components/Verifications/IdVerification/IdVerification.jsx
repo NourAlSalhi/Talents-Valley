@@ -22,9 +22,11 @@ const mystyle = {
 const IdVerification = () => {
     const navigate = useNavigate()
     const [err, setErr] = useState()
-    const { register, handleSubmit, formState: { errors } } = useForm({
+    const { register, handleSubmit, formState: { errors } } = useForm(
+        {
         resolver: yupResolver(verifiyId),
-    });
+    }
+    );
     //function
     const onSubmit = (data) => {
         const formData = new FormData()
@@ -40,6 +42,7 @@ const IdVerification = () => {
             body: formData
         })
             .then((response) => response.json())
+        //    .then(res=>console.log(res))
             .then(result => {
                 if (result.statusCode >= 400)
                     setErr(result.message)
@@ -59,9 +62,9 @@ const IdVerification = () => {
                     <p>Upload Document that Proof your Identity such as: Identity Card, Passport, Driver License</p>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <Select register={register} title='Document Type' name='document' option1='driving_license' option2='passport' option3='national_id ' />
-                        {errors.document && <span>{errors.document.message}</span>}
-                        <Input register={register} placeholder='Enter your ID number' type='number' name='id' value='ID Number' />
-                        {errors.id && <span>{errors.id.message}</span>}
+                        {errors.Select && <span className='error'>{errors.Select.message}</span>}
+                        <Input register={register} placeholder='Enter your ID number' type='text' name='id' value='ID Number' />
+                        {/* {errors.id && <span >{errors.id.message}</span>} */}
                         <Upload>
                             <input type="file" {...register("file")} id='fileUpload' style={{ display: 'none' }} />
                             <svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" viewBox="0 0 20 20">
