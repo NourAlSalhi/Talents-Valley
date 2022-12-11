@@ -41,7 +41,7 @@ const VerificationCodeEmail = (props) => {
   };
   const onSubmit = (e) => {
     e.preventDefault();
-    fetch('https://talents-valley.herokuapp.com/api/user/verify/email', {
+    fetch('https://talents-valley-backend.herokuapp.com/api/user/verify/email', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

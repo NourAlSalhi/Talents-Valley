@@ -17,4 +17,7 @@ i {
     right: 24px;
     color: #707070;
 }
+// @media only screen and (min-width: 961px)and (max-width: 1919px) {
+//     margin-top: 10px;
+// }
 `

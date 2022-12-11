@@ -10,9 +10,9 @@ import Password from '../../hooks/HookForm/Password/Password';
 import Button from '../../hooks/HookForm/Button/Button';
 //style
 import { Container, FooterSign, Title } from './LoginStyle';
-const visiStyle={visibility: 'hidden'}
+const visiStyle = { visibility: 'hidden' }
 //constant
-const baseURL = 'https://talents-valley.herokuapp.com/api/user/login';
+const baseURL = 'https://talents-valley-backend.herokuapp.com/api/user/login';
 const Login = () => {
     const navigate = useNavigate();
     //state
@@ -38,15 +38,11 @@ const Login = () => {
             .then(result => {
                 if (result.statusCode >= 400)
                     setError(result.message)
-                else if (result.statusCode < 400){
-                localStorage.setItem("token", result.data.accessToken);
-                localStorage.setItem("refreshToken", result.data.refreshToken);
-                localStorage.setItem("emial", result.data.user.email);
-                localStorage.setItem("mobile", result.data.user.mobile);
-                localStorage.setItem("emailVerify", result.data.user.verifiedEmail);
-                localStorage.setItem("mobileVerify", result.data.user.verifiedMobile);
-                // localStorage.setItem("user", result.data.data);
-                 navigate('/verification') 
+                else if (result.statusCode < 400) {
+                    localStorage.setItem("token", result.data.accessToken);
+                    localStorage.setItem("refreshToken", result.data.refreshToken);
+                    localStorage.setItem("user", JSON.stringify(result.data.user));
+                    navigate('/verification')
                 }
             })
             .catch((err) => {
@@ -65,8 +61,8 @@ const Login = () => {
                     {erremail ? <span style={{ color: 'red' }}>{erremail}</span> : <span style={visiStyle}>error</span>}
                     <Password label="Password" register={register} name='password' err={err || errPassword} />
                     <div className='err'>
-                    <span className='errMsg'>{errPassword ? errPassword : err}</span>
-                    <Link  className='forget' to="/forgot">Forgot Password?</Link>
+                        <span className='errMsg'>{errPassword ? errPassword : err}</span>
+                        <Link className='forget' to="/forgot">Forgot Password?</Link>
                     </div>
                     <Button value='Sign In ' type="submit" />
                 </form>

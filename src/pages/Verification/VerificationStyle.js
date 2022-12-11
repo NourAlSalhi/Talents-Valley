@@ -19,9 +19,7 @@ export const Main = styled.div`
 .verifPara, .details{
     font-size:14px;
 }
-button{
-    
-}
+
 .Link{
     color:white;
     text-decoration: none;
@@ -44,8 +42,17 @@ justify-content: space-between;
 span{
     color:red;
 }
-button{
+.btnVer{
     background-color:#4375FF;
+    border: 1px solid #E2E2E2;
+    border-radius:7px;
+    width:114px;
+    height: 31px;
+    color:white;
+    margin-top:9px;
+}
+.btnPen{
+    background-color:#D4D4D4;
     border: 1px solid #E2E2E2;
     border-radius:7px;
     width:114px;

@@ -33,7 +33,7 @@ const AddressVerification = () => {
         formData.append('addressDocumentType', data.document)
         formData.append('country', data.country)
         formData.append('otherDocumentType', data.document)
-        fetch('https://talents-valley.herokuapp.com/api/user/verify/address', {
+        fetch('https://talents-valley-backend.herokuapp.com/api/user/verify/address', {
             method: 'POST',
             headers: {
                 "Accept": "application/json",

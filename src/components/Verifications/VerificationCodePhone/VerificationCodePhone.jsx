@@ -11,8 +11,10 @@ const myStyle = { height: '754px', margin: '65px auto', paddingTop: '32px', text
 const VerificationCodePhone = () => {
   //constant
   const navigate = useNavigate()
-  const phonee = localStorage.getItem('mobile')
-  const endPhone = phonee.slice(8)
+  const user = localStorage.getItem('user');
+  const userObj = JSON.parse(user);
+  const mobile = (userObj.mobile)
+  const endPhone = mobile.slice(8)
   //state
   const [err, setError] = useState();
   const [code, setcode] = useState(new Array(6).fill(""));
@@ -27,7 +29,7 @@ const VerificationCodePhone = () => {
   };
   const onSubmit = (e) => {
     e.preventDefault();
-    fetch('https://talents-valley.herokuapp.com/api/user/verify/mobile', {
+    fetch('https://talents-valley-backend.herokuapp.com/api/user/verify/mobile', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

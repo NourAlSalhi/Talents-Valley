@@ -19,13 +19,22 @@ export const Container = styled.div`
         display: flex;
         justify-content: space-between;
     }
+    // @media only screen and (min-width: 961px) and (max-width: 1919px) {
+    //     max-height: 650px;
+    //     width: 600px;
+    //     margin: 40px auto;
+    //     padding: 10px 70px;
+    // }
     }
 `
 export const Title = styled.h4`
     font-weight: 600;
     font-size: 25px;
     margin: 64px 0 40px 0;
-
+    // @media only screen and (min-width: 961px)and (max-width: 1919px) {
+    //     font-size: 18px;
+    //     margin: 30px 0 20px 0;
+    // }
 `
 export const FooterSign = styled.div`
     margin-top: 60px;
@@ -35,5 +44,8 @@ export const FooterSign = styled.div`
         margin-left: 5px;
         text-decoration: none;
     }
+    // @media only screen and (min-width: 961px)and (max-width: 1919px) {
+    //     margin-top: 30px;
+    // }
 
 `

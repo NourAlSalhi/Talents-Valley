@@ -9,7 +9,7 @@ import Logo from '../Logo/Logo';
 import { Container, FooterSign, Title } from '../../../pages/Login/LoginStyle';
 import { Main } from './EmailStyle';
 //constant
-const baseURL = 'https://talents-valley.herokuapp.com/api/user/password/verify-code';
+const baseURL = 'https://talents-valley-backend.herokuapp.com/api/user/send-code-email';
 const EmailCode = () => {
     //state
     const [inputs, setInputs] = useState({});

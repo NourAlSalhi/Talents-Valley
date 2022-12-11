@@ -8,4 +8,10 @@ h3 {
     font-weight: 500;
     font-size: 30px;
 }
+// @media only screen and (min-width: 961px) and (max-width: 1919px){
+//     h3{
+//         font-size: 20px;
+//         margin-top: -23px;
+//     }
+// }
 `

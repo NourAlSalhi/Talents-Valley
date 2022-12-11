@@ -17,9 +17,9 @@ import { Main } from './SignupStyle';
 import { Label } from '../../hooks/HookForm/Input/style';
 import "react-phone-number-input/style.css";
 //constant
-const baseURL = "https://talents-valley.herokuapp.com/api/user/signup";
+const baseURL = "https://talents-valley-backend.herokuapp.com/api/user/signup";
 const style = { height: 'auto', margin: '66px auto 0px', padding: '0px 102px 47px 101px' }
-const visiStyle={visibility: 'hidden'}
+const visiStyle = { visibility: 'hidden' }
 const Signup = () => {
     //state
     const [country, setCountry] = useState();
@@ -47,11 +47,7 @@ const Signup = () => {
             .then((response) => response.json())
             .then((result) => {
                 localStorage.setItem("token", result.data.accessToken);
-                localStorage.setItem("emial", result.data.user.email);
-                localStorage.setItem("mobile", result.data.user.mobile);
-                localStorage.setItem("emailVerify", result.data.user.verifiedEmail);
-                localStorage.setItem("mobileVerify", result.data.user.verifiedMobile);
-                // localStorage.setItem("user", result.data.data);
+                localStorage.setItem("user", JSON.stringify(result.data.user));
                 navigate('/verification');
             })
             .catch((error) => {
@@ -80,18 +76,18 @@ const Signup = () => {
                         <Password label="Password" register={register} name='newPassword' />
                         <span style={visiStyle}>error</span>
                         {errors.newPassword && errors.newPassword.type === "matches" && (
-                            <p style={{ color: "red" ,marginTop: '-20px' }}>
-                                <svg xmlns="http://www.w3.org/2000/svg" style={{marginRight: '4px'}} width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="M12.884 2.532c-.346-.654-1.422-.654-1.768 0l-9 17A.999.999 0 0 0 3 21h18a.998.998 0 0 0 .883-1.467L12.884 2.532zM13 18h-2v-2h2v2zm-2-4V9h2l.001 5H11z"/></svg>
+                            <p style={{ color: "red", marginTop: '-20px' }}>
+                                <svg xmlns="http://www.w3.org/2000/svg" style={{ marginRight: '4px' }} width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="M12.884 2.532c-.346-.654-1.422-.654-1.768 0l-9 17A.999.999 0 0 0 3 21h18a.998.998 0 0 0 .883-1.467L12.884 2.532zM13 18h-2v-2h2v2zm-2-4V9h2l.001 5H11z" /></svg>
                                 Your password is weak
                             </p>
                         )}
                         {errors.newPassword && errors.newPassword.type === "required" && (
-                            <p style={{ color: "red" ,marginTop: '-20px'}}> 
-                             <svg xmlns="http://www.w3.org/2000/svg" style={{marginRight: '4px'}} width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="M12.884 2.532c-.346-.654-1.422-.654-1.768 0l-9 17A.999.999 0 0 0 3 21h18a.998.998 0 0 0 .883-1.467L12.884 2.532zM13 18h-2v-2h2v2zm-2-4V9h2l.001 5H11z"/></svg>
-                            this field must be password
+                            <p style={{ color: "red", marginTop: '-20px' }}>
+                                <svg xmlns="http://www.w3.org/2000/svg" style={{ marginRight: '4px' }} width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="M12.884 2.532c-.346-.654-1.422-.654-1.768 0l-9 17A.999.999 0 0 0 3 21h18a.998.998 0 0 0 .883-1.467L12.884 2.532zM13 18h-2v-2h2v2zm-2-4V9h2l.001 5H11z" /></svg>
+                                this field must be password
                             </p>
                         )}
-                        <div style={{marginTop:'15px'}}>
+                        <div style={{ marginTop: '15px' }}>
                             <Label>Phone Number</Label>
                             <PhoneInputWithCountry
                                 international
@@ -115,7 +111,7 @@ const Signup = () => {
                                     </option>
                                 ))}
                             </select>
-                            {errors.country && <p style={{ color: 'red' }}>{errors.country.message}</p>} 
+                            {errors.country && <p style={{ color: 'red' }}>{errors.country.message}</p>}
                         </div>
                         <Button value="Sign Up" type='submit' />
                         <FooterSign>

@@ -11,7 +11,7 @@ import Button from '../../../hooks/HookForm/Button/Button';
 import { Container, Title } from '../../../pages/Login/LoginStyle';
 import { Main } from './ForgotStyle';
 //constant
-const baseURL = 'https://talents-valley.herokuapp.com/api/user/password/forgot'
+const baseURL = 'https://talents-valley-backend.herokuapp.com/api/user/password/forgot'
 const Forgot = () => {
     const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors } } = useForm(
