@@ -4,7 +4,7 @@ export const Main = styled.div`
 img{
     margin:32px 0 40px 205px;
 }
-p{
+.para{
     font-size: 20px;
     font-weight: 600;
     color: #707070;
@@ -31,5 +31,10 @@ p{
 }
 select{
     appearance: none;
+}
+.icons{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 20px;
 }
 `

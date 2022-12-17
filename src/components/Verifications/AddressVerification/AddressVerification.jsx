@@ -3,6 +3,7 @@ import address from '../../../assets/images/address.png'
 import { useForm } from "react-hook-form";
 import { useNavigate } from 'react-router-dom';
 import Select from '../../../hooks/HookForm/Select/Select';
+import File from '../../../hooks/HookForm/File/File';
 import { getCountries } from 'react-phone-number-input/input'
 import en from 'react-phone-number-input/locale/en.json'
 //style
@@ -11,8 +12,7 @@ import { Title } from '../../../pages/Verification/VerificationStyle'
 import { Main } from './AddressStyle'
 import { Label } from '../../../hooks/HookForm/Input/style';
 import Header from '../../Header/Header'
-import { Upload } from '../IdVerification/IdVerifivcationStyle';
-import {ButtonStyle} from '../../../hooks/HookForm/Button/style'
+import { ButtonStyle } from '../../../hooks/HookForm/Button/style'
 
 const myStyle = {
     height: '945px',
@@ -21,9 +21,10 @@ const myStyle = {
 }
 const AddressVerification = () => {
     const navigate = useNavigate()
-    const [err,setErr] = useState()
+    const [err, setErr] = useState()
     const [country, setCountry] = useState();
-    const { register, handleSubmit } = useForm();
+    const { register, watch, resetField, handleSubmit, formState: { errors } } = useForm();
+
     const onSubmit = (data) => {
         const formData = new FormData()
         formData.append('file', data.file[0])
@@ -45,8 +46,25 @@ const AddressVerification = () => {
             .then(result => {
                 if (result.statusCode >= 400)
                     setErr(result.message)
-                else if (result.statusCode < 400)
-                 navigate('/verification') 
+                else if (result.statusCode < 400) {
+                    userProfile()
+                    navigate('/verification')
+                }
+            })
+            .catch((error) => console.log('error', error));
+    }
+
+    const userProfile = () => {
+        fetch('https://talents-valley-backend.herokuapp.com/api/settings/profile', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+            }
+        })
+            .then((response) => response.json())
+            .then(data => {
+                localStorage.setItem("user", JSON.stringify(data.data))
             })
             .catch((error) => console.log('error', error));
     }
@@ -93,18 +111,9 @@ const AddressVerification = () => {
                                 </select>
                             </div>
                         </div>
-                        <Upload >
-                            <input type="file" {...register("file")} id='fileUpload' style={{ display: 'none' }} />
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" viewBox="0 0 20 20">
-                                <path d="M17 12v5H3v-5H1v5a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5z" />
-                                <path d="M15 7l-5-6-5 6h4v8h2V7h4z" />
-                            </svg>
-                            <label htmlFor='fileUpload' style={{ cursor: 'pointer' }}>
-                                Upload a File
-                            </label>
-                        </Upload>
-                        <span style={{color:'red'}}>{err}</span>
-                        <ButtonStyle>Continue</ButtonStyle>
+                        <File watch={watch} register={register} errors={errors} />
+                        <span style={{ color: 'red' }}>{err}</span>
+                        <ButtonStyle onClick={userProfile}>Continue</ButtonStyle>
                     </form>
                 </Main>
             </Container>

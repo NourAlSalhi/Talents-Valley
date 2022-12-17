@@ -13,35 +13,34 @@ import { ButtonStyle } from '../../hooks/HookForm/Button/style';
 //constant
 const mystyle = { height: '834px', margin: '65px auto 45px', padding: '32px 114px 123px 113px' };
 const Verification = () => {
-  const user = localStorage.getItem('user');
-  const userObj = JSON.parse(user);
+  const user = JSON.parse(localStorage.getItem('user'))
   // const email = (userObj.email)
   // const mobile = (userObj.mobile)
   // const emailVerify = (userObj.verifiedEmail)
   // const mobileVerify = (userObj.verifiedMobile)
   // const idVerify = (userObj.verifiedId.status)
   // const addressVerify = (userObj.verifiedAddress.status)
-  const startPhone = userObj.mobile.slice(0, 4)
-  const endPhone = userObj.mobile.slice(9)
+  const startPhone = user.mobile.slice(0, 4)
+  const endPhone = user.mobile.slice(9)
   const navigate = useNavigate()
 
-  const userProfile = () => {
-    fetch('https://talents-valley-backend.herokuapp.com/api/settings/profile', {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${localStorage.getItem('token')}`,
-        }
-      })
-        .then((response) => response.json())
-        .then(data => {
-          localStorage.setItem("user", JSON.stringify(data.data))
-        })
-        .catch((error) => console.log('error', error));
-}
-  useEffect( () =>{
-    userProfile()
-  },[userObj.verifiedId.status,userObj.verifiedAddress.status])
+//   const userProfile = () => {
+//     fetch('https://talents-valley-backend.herokuapp.com/api/settings/profile', {
+//         method: 'GET',
+//         headers: {
+//           'Content-Type': 'application/json',
+//           Authorization: `Bearer ${localStorage.getItem('token')}`,
+//         }
+//       })
+//         .then((response) => response.json())
+//         .then(data => {
+//           localStorage.setItem("user", JSON.stringify(data.data))
+//         })
+//         .catch((error) => console.log('error', error));
+// }
+//   useEffect( () =>{
+//     userProfile()
+//   },[userObj.verifiedId,userObj.verifiedAddress])
 
   const handelClick = () => {
     navigate('/invoiceRecords')
@@ -57,18 +56,18 @@ const Verification = () => {
           <Contain>
             <div>
               <p className='title'>Email Address</p>
-              <p className='details'>{userObj.email}<span style={{ color: userObj.verifiedEmail ? "#19AB16" : "#E80707" }}> ({userObj.verifiedEmail ? "verified" : "not verified"}) </span></p>
+              <p className='details'>{user.email}<span style={{ color: user.verifiedEmail ? "#19AB16" : "#E80707" }}> ({user.verifiedEmail ? "verified" : "not verified"}) </span></p>
             </div>
-            {userObj.verifiedEmail ? <img src={check} />
+            {user.verifiedEmail ? <img src={check} />
               : <button className='btnVer' onClick={onSubmit(urlEmail)}><Link className='Link' to='/verificationCodeEmail'>Verify</Link></button>
             }
           </Contain>
           <Contain style={{ marginTop: '16px' }}>
             <div>
               <p className='title'>Phone Number</p>
-              <p className='details'>{startPhone} ****** {endPhone}<span style={{ color: userObj.verifiedMobile ? "#19AB16" : "#E80707" }}> ({userObj.verifiedMobile ? "verified" : "not verified"}) </span></p>
+              <p className='details'>{startPhone} ****** {endPhone}<span style={{ color: user.verifiedMobile ? "#19AB16" : "#E80707" }}> ({user.verifiedMobile ? "verified" : "not verified"}) </span></p>
             </div>
-            {userObj.verifiedMobile ? <img src={check} />
+            {user.verifiedMobile ? <img src={check} />
               : <button className='btnVer' onClick={onSubmit(urlPhone)}><Link className='Link' to='/verificationCodePhone'>Verify</Link></button>
             }
           </Contain>
@@ -79,7 +78,7 @@ const Verification = () => {
               <p className='details'>Identity card - Driver license - Passport</p>
             </div>
             {/* <button><Link className='Link' to='/idVerification'>Verify</Link></button> */}
-            {userObj.verifiedId.status == 'pending' ? <button className='btnPen'>Pending</button>
+            {user.verifiedId.status == 'pending' ? <button className='btnPen'>Pending</button>
               : <button className='btnVer'><Link className='Link' to='/idVerification'>Verify</Link></button>
             }
           </Contain>
@@ -89,11 +88,11 @@ const Verification = () => {
               <p className='details'>Phone, Electricity, Water Bill - Bank statement</p>
             </div>
             {/* <button className='btnVer'><Link className='Link' to='/addressVerification'>Verify</Link></button> */}
-            {userObj.verifiedAddress.status == 'pending' ? <button className='btnPen'>Pending</button>
+            {user.verifiedAddress.status == 'pending' ? <button className='btnPen'>Pending</button>
               : <button className='btnVer'><Link className='Link' to='/addressVerification'>Verify</Link></button>
             }
           </Contain>
-          <ButtonStyle style={{ backgroundColor: userObj.verifiedEmail && userObj.verifiedMobile ? "#4375FF" : "#A7BDFB" }} disabled={userObj.verifiedEmail && userObj.verifiedMobile  == false}>Continue</ButtonStyle>
+          <ButtonStyle style={{ backgroundColor: user.verifiedEmail && user.verifiedMobile ? "#4375FF" : "#A7BDFB" }} disabled={user.verifiedEmail && user.verifiedMobile  == false}>Continue</ButtonStyle>
         </Main>
       </Container>
     </>

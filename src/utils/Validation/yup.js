@@ -22,10 +22,23 @@ export const resetPassword = yup.object({
     ResetPassword: yup.string().required().trim(),
     confirmPassword: yup.string().oneOf([yup.ref('ResetPassword')], 'password must match').required().trim(),
 })
+// const schemaFile = yup.object({
+//     file: yup.mixed()
+//         .test('required', "You need to provide a file", (value) => {
+//             return value && value.length
+//         })
+//         .test("fileSize", "Your file is too big", (value) => {
+//             return value && value[0] && value[0].size <= 200000;
+//         }),
+// })
+// const verifiyId = yup.object({
+//     select: yup.string().required("document is required!"),
+//     id:  yup.number().transform(value => (isNaN(value) ? undefined : value)).required("ID is required!")
+// })
 
-export const verifiyId = yup.object({
-    // Select: yup.string().ensure().required("document is required!"),
-    id: yup.string().required().matches(/^[0-9]+$/, "Must be only digits").max(9, 'Must be exactly 5 digits').trim(),
+// export const schemaVerifiyId = verifiyId.concat(schemaFile)
+
+const schemaFile = yup.object({
     file: yup.mixed()
         .test('required', "You need to provide a file", (value) => {
             return value && value.length
@@ -33,6 +46,9 @@ export const verifiyId = yup.object({
         .test("fileSize", "Your file is too big", (value) => {
             return value && value[0] && value[0].size <= 200000;
         }),
-    // })
 })
+export const verifiyId = schemaFile.concat(yup.object({
+    select: yup.string().required("document is required!"),
+    id: yup.number().transform((value) => (isNaN(value) ? undefined : value)).nullable().required("this filed is required"),
+}))
 
