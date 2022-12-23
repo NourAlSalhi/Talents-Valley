@@ -14,8 +14,8 @@ const Header = () => {
       <nav className='links'>
         <ul>
           <li> <Link className='link' to="/home">Home</Link></li>
-          <li> <Link className='link' to="/invoices">Invoices</Link></li>
-          <li> <Button>Create</Button></li>
+          <li> <Link className='link' to="/invoiuce">Invoices</Link></li>
+          <li> <Button><Link style={{color:'blue'}} className='link' to="/invoiceRecords">Create</Link></Button></li>
         </ul>
       </nav>
     </Container>

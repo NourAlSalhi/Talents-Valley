@@ -48,7 +48,7 @@ const schemaFile = yup.object({
         }),
 })
 export const verifiyId = schemaFile.concat(yup.object({
-    select: yup.string().required("document is required!"),
+    // select: yup.string().required("document is required!"),
     id: yup.number().transform((value) => (isNaN(value) ? undefined : value)).nullable().required("this filed is required"),
 }))
 

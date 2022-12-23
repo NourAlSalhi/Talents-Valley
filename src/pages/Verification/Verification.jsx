@@ -5,8 +5,9 @@ import { onSubmit } from '../../lib/helpers/verifiyFun';
 import { urlEmail, urlPhone } from '../../apis/verifiy';
 //components
 import Header from '../../components/Header/Header'
+// import ContainDetails from '../../components/Verifications/Contain/Contain';
 //style
-import { Main, Title, Contain } from './VerificationStyle';
+import { Main, Title ,Contain } from './VerificationStyle';
 import { Container } from '../Login/LoginStyle';
 import { ButtonStyle } from '../../hooks/HookForm/Button/style';
 
@@ -24,28 +25,24 @@ const Verification = () => {
   const endPhone = user.mobile.slice(9)
   const navigate = useNavigate()
 
-//   const userProfile = () => {
-//     fetch('https://talents-valley-backend.herokuapp.com/api/settings/profile', {
-//         method: 'GET',
-//         headers: {
-//           'Content-Type': 'application/json',
-//           Authorization: `Bearer ${localStorage.getItem('token')}`,
-//         }
-//       })
-//         .then((response) => response.json())
-//         .then(data => {
-//           localStorage.setItem("user", JSON.stringify(data.data))
-//         })
-//         .catch((error) => console.log('error', error));
-// }
-//   useEffect( () =>{
-//     userProfile()
-//   },[userObj.verifiedId,userObj.verifiedAddress])
+  //   const userProfile = () => {
+  //     fetch('https://talents-valley-backend.herokuapp.com/api/settings/profile', {
+  //         method: 'GET',
+  //         headers: {
+  //           'Content-Type': 'application/json',
+  //           Authorization: `Bearer ${localStorage.getItem('token')}`,
+  //         }
+  //       })
+  //         .then((response) => response.json())
+  //         .then(data => {
+  //           localStorage.setItem("user", JSON.stringify(data.data))
+  //         })
+  //         .catch((error) => console.log('error', error));
+  // }
+  //   useEffect( () =>{
+  //     userProfile()
+  //   },[userObj.verifiedId,userObj.verifiedAddress])
 
-  const handelClick = () => {
-    navigate('/invoiceRecords')
-  }
-  //state
   return (
     <>
       <Header />
@@ -77,7 +74,6 @@ const Verification = () => {
               <p className='title'>ID Verification</p>
               <p className='details'>Identity card - Driver license - Passport</p>
             </div>
-            {/* <button><Link className='Link' to='/idVerification'>Verify</Link></button> */}
             {user.verifiedId.status == 'pending' ? <button className='btnPen'>Pending</button>
               : <button className='btnVer'><Link className='Link' to='/idVerification'>Verify</Link></button>
             }
@@ -87,12 +83,15 @@ const Verification = () => {
               <p className='title'>Address Verification</p>
               <p className='details'>Phone, Electricity, Water Bill - Bank statement</p>
             </div>
-            {/* <button className='btnVer'><Link className='Link' to='/addressVerification'>Verify</Link></button> */}
             {user.verifiedAddress.status == 'pending' ? <button className='btnPen'>Pending</button>
               : <button className='btnVer'><Link className='Link' to='/addressVerification'>Verify</Link></button>
             }
           </Contain>
-          <ButtonStyle style={{ backgroundColor: user.verifiedEmail && user.verifiedMobile ? "#4375FF" : "#A7BDFB" }} disabled={user.verifiedEmail && user.verifiedMobile  == false}>Continue</ButtonStyle>
+          {/* <ContainDetails title='Email Address' userData={user.email}
+            style={{ color: user.verifiedEmail ? "#19AB16" : "#E80707" }}
+            verified={user.verifiedEmail ? "verified" : "not verified"}
+            verify={user.verifiedEmail} path='/verificationCodeEmail' url={urlEmail} /> */}
+          <ButtonStyle style={{ backgroundColor: user.verifiedMobile && user.verifiedMobile ? "#4375FF" : "#A7BDFB" }} disabled={user.verifiedEmail ==false && user.verifiedMobile == false}><Link className='Link' to='/home'>Contanie</Link></ButtonStyle>
         </Main>
       </Container>
     </>

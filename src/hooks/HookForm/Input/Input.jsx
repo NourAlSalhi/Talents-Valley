@@ -13,7 +13,7 @@ const Input = (props) => {
                 style={props.err && errStyle }
                 placeholder={props.placeholder}
                 type={props.type}
-                name={props.name}
+                // name={props.name}
                 {...props.register(props.name)} />
         </div>
     )

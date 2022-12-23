@@ -1,15 +1,15 @@
 import React from 'react'
 import Header from '../../Header/Header'
-import Menu from '../Menu/Menu'
+import Menu from '../../Invoiuces/Menu/Menu'
 import { useForm } from 'react-hook-form'
 import Input from '../../../hooks/HookForm/Input/Input'
 import Select from '../../../hooks/HookForm/Select/Select'
 //style
-import { Container, InvoiuceRecords } from './InvoiuceStyle'
+import { Container, InvoiuceRecords } from './RecordsStyle'
 import { Label, InputStyle } from '../../../hooks/HookForm/Input/style'
 import { SelectStyle } from '../../../hooks/HookForm/Select/SelectStyle'
 import Button from '../../../hooks/HookForm/Button/Button'
-const Invoice = () => {
+const InvoiceRecords = () => {
   const { register, handleSubmit } = useForm()
   return (
     <div>
@@ -82,4 +82,4 @@ const Invoice = () => {
   )
 }
 
-export default Invoice
+export default InvoiceRecords

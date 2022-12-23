@@ -1,12 +1,11 @@
 import React from 'react'
 import Header from '../../components/Header/Header'
-//style
-const Home = () => {
+const Invoiuce = () => {
   return (
     <div>
-      <Header />
+        <Header />
     </div>
   )
 }
 
-export default Home
+export default Invoiuce

@@ -48,7 +48,6 @@ const AddressVerification = () => {
                     setErr(result.message)
                 else if (result.statusCode < 400) {
                     userProfile()
-                    navigate('/verification')
                 }
             })
             .catch((error) => console.log('error', error));
@@ -65,6 +64,7 @@ const AddressVerification = () => {
             .then((response) => response.json())
             .then(data => {
                 localStorage.setItem("user", JSON.stringify(data.data))
+                navigate('/verification')
             })
             .catch((error) => console.log('error', error));
     }
