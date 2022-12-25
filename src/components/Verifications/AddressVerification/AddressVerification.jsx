@@ -6,6 +6,7 @@ import Select from '../../../hooks/HookForm/Select/Select';
 import File from '../../../hooks/HookForm/File/File';
 import { getCountries } from 'react-phone-number-input/input'
 import en from 'react-phone-number-input/locale/en.json'
+import { basedUrl } from '../../../apis/verifiy';
 //style
 import { Container } from '../../../pages/Login/LoginStyle'
 import { Title } from '../../../pages/Verification/VerificationStyle'
@@ -34,7 +35,7 @@ const AddressVerification = () => {
         formData.append('addressDocumentType', data.document)
         formData.append('country', data.country)
         formData.append('otherDocumentType', data.document)
-        fetch('https://talents-valley-backend.herokuapp.com/api/user/verify/address', {
+        fetch(`${basedUrl}user/verify/address`, {
             method: 'POST',
             headers: {
                 "Accept": "application/json",
@@ -54,7 +55,7 @@ const AddressVerification = () => {
     }
 
     const userProfile = () => {
-        fetch('https://talents-valley-backend.herokuapp.com/api/settings/profile', {
+        fetch(`${basedUrl}settings/profile`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

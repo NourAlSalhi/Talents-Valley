@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { loginSchema } from '../../utils/Validation/yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Link, useNavigate } from 'react-router-dom';
+import {basedUrl} from '../../apis/verifiy';
 //components
 import Logo from '../../components/login&Signup/Logo/Logo';
 import Input from '../../hooks/HookForm/Input/Input';
@@ -12,7 +13,6 @@ import Button from '../../hooks/HookForm/Button/Button';
 import { Container, FooterSign, Title } from './LoginStyle';
 const visiStyle = { visibility: 'hidden' }
 //constant
-const baseURL = 'https://talents-valley-backend.herokuapp.com/api/user/login';
 const Login = () => {
     const navigate = useNavigate();
     //state
@@ -24,7 +24,7 @@ const Login = () => {
     );
     //function
     const handelLogin = (data) => {
-        fetch(baseURL, {
+        fetch(`${basedUrl}user/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

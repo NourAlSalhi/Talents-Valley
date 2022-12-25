@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import { forgot } from '../../../utils/Validation/yup';
 import { useNavigate } from 'react-router-dom';
+import { basedUrl} from '../../../apis/verifiy'
 //components
 import Logo from '../Logo/Logo';
 import Input from '../../../hooks/HookForm/Input/Input';
@@ -11,7 +12,6 @@ import Button from '../../../hooks/HookForm/Button/Button';
 import { Container, Title } from '../../../pages/Login/LoginStyle';
 import { Main } from './ForgotStyle';
 //constant
-const baseURL = 'https://talents-valley-backend.herokuapp.com/api/user/password/forgot'
 const Forgot = () => {
     const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors } } = useForm(
@@ -22,7 +22,7 @@ const Forgot = () => {
     //const onSubmit = data => console.log(data);
 
     const handelForgot = (data) => {
-        fetch(baseURL, {
+        fetch(`${basedUrl}user/password/forgot`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

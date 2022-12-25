@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import Button from '../../../hooks/HookForm/Button/Button'
 import Password from '../../../hooks/HookForm/Password/Password'
 import Logo from '../Logo/Logo'
+import { basedUrl} from '../../../apis/verifiy'
 import { yupResolver } from '@hookform/resolvers/yup';
 import { resetPassword } from '../../../utils/Validation/yup';
 import { useForm } from 'react-hook-form'
@@ -10,7 +11,6 @@ import { useLocation } from 'react-router-dom';
 //style
 import { Container, Title } from '../../../pages/Login/LoginStyle'
 //constant
-const baseURL = 'https://talents-valley.herokuapp.com/api/user/password/recover'
 const ResetPassword = () => {
     const navigate = useNavigate();
     const location = useLocation();
@@ -23,7 +23,7 @@ const ResetPassword = () => {
     )
     //function
     const handelReset = (data) => {
-        fetch(baseURL, {
+        fetch(`${basedUrl}user/password/recover`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({

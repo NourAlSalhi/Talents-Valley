@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import Header from '../../Header/Header'
 import Button from '../../../hooks/HookForm/Button/Button'
 import phone from '../../../assets/images/phone.png'
+import { basedUrl } from '../../../apis/verifiy'
 //style
 import { Container, FooterSign } from '../../../pages/Login/LoginStyle'
 import { Title } from '../../../pages/Verification/VerificationStyle'
@@ -29,7 +30,7 @@ const VerificationCodePhone = () => {
   };
   const onSubmit = (e) => {
     e.preventDefault();
-    fetch('https://talents-valley-backend.herokuapp.com/api/user/verify/mobile', {
+    fetch(`${basedUrl}user/verify/mobile`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

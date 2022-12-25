@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { basedUrl} from '../../../apis/verifiy'
 //components
 import Button from '../../../hooks/HookForm/Button/Button';
 import Logo from '../Logo/Logo';
@@ -9,7 +10,6 @@ import Logo from '../Logo/Logo';
 import { Container, FooterSign, Title } from '../../../pages/Login/LoginStyle';
 import { Main } from './EmailStyle';
 //constant
-const baseURL = 'https://talents-valley-backend.herokuapp.com/api/user/send-code-email';
 const EmailCode = () => {
     //state
     const [inputs, setInputs] = useState({});
@@ -25,7 +25,7 @@ const EmailCode = () => {
           _id :id ,
           verificationCode: finalcode ,
         } 
-          fetch(baseURL, {
+          fetch(`${basedUrl}user/send-code-email`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(data),

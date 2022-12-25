@@ -18,7 +18,7 @@ h3 {
 }
 nav{
     width:20%;
-    margin-right: 30px;
+    margin-right: 121px;
 }
 ul{
     list-style: none;

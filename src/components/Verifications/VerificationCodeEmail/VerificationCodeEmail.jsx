@@ -3,6 +3,7 @@ import Header from '../../Header/Header'
 import Button from '../../../hooks/HookForm/Button/Button'
 import { Link, useNavigate } from 'react-router-dom'
 import email from '../../../assets/images/email.png'
+import { basedUrl } from '../../../apis/verifiy'
 //style
 import { Container, FooterSign } from '../../../pages/Login/LoginStyle'
 import { Title } from '../../../pages/Verification/VerificationStyle'
@@ -41,7 +42,7 @@ const VerificationCodeEmail = (props) => {
   };
   const onSubmit = (e) => {
     e.preventDefault();
-    fetch('https://talents-valley-backend.herokuapp.com/api/user/verify/email', {
+    fetch(`${basedUrl}user/verify/email`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

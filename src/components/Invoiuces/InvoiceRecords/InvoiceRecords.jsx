@@ -17,7 +17,7 @@ const InvoiceRecords = () => {
       <Container>
         <Menu />
         <div>
-          <h2>Create Invoice Records</h2>
+          <h2 className='title'>Create Invoice Records</h2>
           <InvoiuceRecords >
             <form >
               {/*-------------------------  Freelancer ------------------------------------*/}

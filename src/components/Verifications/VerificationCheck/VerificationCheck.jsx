@@ -4,6 +4,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import Header from '../../Header/Header'
 import check from "../../../assets/images/check.png"
 import Button from '../../../hooks/HookForm/Button/Button'
+import { basedUrl } from '../../../apis/verifiy';
 //style
 import { Container } from '../../../pages/Login/LoginStyle'
 import { Main } from './CheckStyle'
@@ -18,7 +19,7 @@ const VerificationCheck = () => {
   const navigate = useNavigate();
   //function
   const onSubmit = () => {
-    fetch('https://talents-valley-backend.herokuapp.com/api/settings/profile', {
+    fetch(`${basedUrl}settings/profile`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -30,7 +31,7 @@ const VerificationCheck = () => {
         localStorage.setItem("user", JSON.stringify(data.data))
         navigate('/verification')
       })
-      
+
       .catch((error) => console.log('error', error));
   }
   return (

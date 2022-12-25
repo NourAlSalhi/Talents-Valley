@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
 display: flex;
-h2{
+.title{
     margin: 38px 0px 17px 15px;
     font-weight: 500;
 }

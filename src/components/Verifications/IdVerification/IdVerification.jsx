@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { verifiyId } from '../../../utils/Validation/yup';
 import id from '../../../assets/images/id.png'
+import { basedUrl } from '../../../apis/verifiy';
 //components
 import Header from '../../Header/Header'
 import Input from '../../../hooks/HookForm/Input/Input'
@@ -29,7 +30,7 @@ const IdVerification = () => {
         formData.append('file', data.file[0])
         formData.append('idNumber', data.id)
         formData.append('idDocumentType', data.document)
-        fetch('https://talents-valley-backend.herokuapp.com/api/user/verify/id', {
+        fetch(`${basedUrl}user/verify/id`, {
             method: 'POST',
             headers: {
                 "Accept": "application/json",
@@ -48,7 +49,7 @@ const IdVerification = () => {
             .catch((error) => console.log('error', error));
     }
     const userProfile = () => {
-        fetch('https://talents-valley-backend.herokuapp.com/api/settings/profile', {
+        fetch(`${basedUrl}settings/profile`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

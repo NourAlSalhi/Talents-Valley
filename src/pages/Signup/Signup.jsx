@@ -6,6 +6,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { registerAccountSchema } from '../../utils/Validation/yup';
 import { getCountries } from 'react-phone-number-input/input'
 import en from 'react-phone-number-input/locale/en.json'
+import {basedUrl} from '../../apis/verifiy';
 //components
 import Logo from '../../components/login&Signup/Logo/Logo';
 import Input from '../../hooks/HookForm/Input/Input';
@@ -17,7 +18,6 @@ import { Main } from './SignupStyle';
 import { Label } from '../../hooks/HookForm/Input/style';
 import "react-phone-number-input/style.css";
 //constant
-const baseURL = "https://talents-valley-backend.herokuapp.com/api/user/signup";
 const style = { height: 'auto', margin: '66px auto 0px', padding: '0px 102px 47px 101px' }
 const visiStyle = { visibility: 'hidden' }
 const Signup = () => {
@@ -32,7 +32,7 @@ const Signup = () => {
         }
     );
     const handelSignup = (data) => {
-        fetch(baseURL, {
+        fetch(`${basedUrl}user/signup"`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
