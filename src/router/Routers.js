@@ -15,12 +15,14 @@ import VerificationCheck from '../components/Verifications/VerificationCheck/Ver
 import IdVerification from '../components/Verifications/IdVerification/IdVerification';
 import AddressVerification from '../components/Verifications/AddressVerification/AddressVerification';
 //Home
-import Home from '../pages/Home/Home';
-import Invoiuce from '../pages/Invoiuce/Invoiuce';
-import User from '../pages/User/User';
+import Home from '../pages/Team/Home/Home';
+import Invoiuce from '../pages/Team/Invoiuce/Invoiuce';
+import User from '../pages/Team/User/User';
+import CreateInvoiuce from '../pages/Team/CreateInvoiuce/CreateInvoiuce';
 import InvoiuceRecords from '../components/Invoiuces/InvoiceRecords/InvoiceRecords'
 import Payout from '../components/Invoiuces/Payout/Payout'
 import AddLink from '../components/Invoiuces/AddLink/AddLink';
+
 const Routers = () => {
     let element = useRoutes([
         { path: '/', element: <Login /> },
@@ -29,18 +31,27 @@ const Routers = () => {
         { path: '/emailCode', element: <EmailCode /> },
         { path: '/resetPassword', element: <ResetPassword /> },
         { path: '/checkPassword', element: <PasswordCheck /> },
-        { path: '/verification', element: <Verification /> },
-        { path: '/verificationCodeEmail', element: <VerificationCodeEmail /> },
-        { path: '/verificationCodePhone', element: <VerificationCodePhone /> },
-        { path: '/verificationCheck', element: <VerificationCheck /> },
-        { path: '/idVerification', element: <IdVerification /> },
-        { path: '/addressVerification', element: <AddressVerification /> },
+        {
+            path: '/verification', children: [
+                { index: true, element: <Verification /> },
+                { path: 'verificationCodeEmail', element: <VerificationCodeEmail /> },
+                { path: 'verificationCodePhone', element: <VerificationCodePhone /> },
+                { path: 'verificationCheck', element: <VerificationCheck /> },
+                { path: 'idVerification', element: <IdVerification /> },
+                { path: 'addressVerification', element: <AddressVerification /> },
+            ]
+        },
         { path: '/home', element: <Home /> },
         { path: '/invoiuce', element: <Invoiuce /> },
         { path: '/user', element: <User /> },
-        { path: '/invoiceRecords', element: <InvoiuceRecords /> },
-        { path: '/payoutRecords', element: <Payout /> },
-        { path: '/addLink', element: <AddLink /> },
+        {
+            path: '/createInvoiuce', element: <CreateInvoiuce />, children: [
+                { path: 'invoiceRecords', element: <InvoiuceRecords /> },
+                { path: 'payoutRecords', element: <Payout /> },
+                { path: 'addLink', element: <AddLink /> },
+            ]
+        },
+        { path: '*', element: <h1 style={{margin:'300px 800px',color:'red'}}>Page Not Found!!</h1> },
     ])
     return element
 }

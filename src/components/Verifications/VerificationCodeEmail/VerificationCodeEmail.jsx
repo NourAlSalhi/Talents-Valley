@@ -57,7 +57,7 @@ const VerificationCodeEmail = (props) => {
         if (result.statusCode >= 400)
           setError(result.message)
         else if (result.statusCode < 400) {
-          navigate('/verificationCheck', {
+          navigate('verificationCheck', {
             state: {
               name: 'Email Verification',
               para: 'Your Email has been Verified Successfully'

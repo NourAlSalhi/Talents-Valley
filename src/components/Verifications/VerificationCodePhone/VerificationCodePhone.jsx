@@ -45,7 +45,7 @@ const VerificationCodePhone = () => {
         if (result.statusCode >= 400)
           setError(result.message)
         else if (result.statusCode < 400) {
-          navigate('/verificationCheck', {
+          navigate('verificationCheck', {
             state: {
               name: 'Phone Verification',
               para: 'Your Phone Number has been Verified Successfully'

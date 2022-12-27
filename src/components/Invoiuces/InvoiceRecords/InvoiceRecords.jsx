@@ -1,6 +1,4 @@
 import React from 'react'
-import Header from '../../Header/Header'
-import Menu from '../../Invoiuces/Menu/Menu'
 import { useForm } from 'react-hook-form'
 import Input from '../../../hooks/HookForm/Input/Input'
 import Select from '../../../hooks/HookForm/Select/Select'
@@ -13,9 +11,7 @@ const InvoiceRecords = () => {
   const { register, handleSubmit } = useForm()
   return (
     <div>
-      <Header />
       <Container>
-        <Menu />
         <div>
           <h2 className='title'>Create Invoice Records</h2>
           <InvoiuceRecords >

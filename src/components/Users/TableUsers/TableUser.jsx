@@ -3,9 +3,10 @@ import { basedUrl } from '../../../apis/verifiy'
 import axios from 'axios'
 //style
 import { Tabel } from './style'
+import Icons from '../Icons'
 const TableUser = ({ users, search }) => {
   // state
-  // const [users, setUsers] = useState()
+  // const [open, setOpen] = useState(false)
   //useEffect
   // useEffect(() => {
   //   axios.get(`${basedUrl}team/user/list`, {
@@ -16,29 +17,15 @@ const TableUser = ({ users, search }) => {
   //   })
   //     .then(res => setUsers(res.data.users))
   // }, [])
-  // useEffect(() => {
-  //   fetch(`${basedUrl}team/user/list`, {
-  //     method: 'GET',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //       Authorization: `Bearer ${localStorage.getItem('token')}`,
-  //     }
-  //   })
-  //     .then(response => response.json())
-  //     .then(res => {
-  //       setUsers(res.data.users)
-  //     })
-  //     .catch((error) => console.log('error', error));
-  // }, [])
+
 
   if (!users) {
     return <div style={{ margin: '300px 900px', fontSize: '30px' }}>Loading...</div>;
   }
-
   return (
     <>
       <Tabel>
-        <thead style={{ marginBottom: '16px' }}>
+        <tbody>
           <tr >
             <th>Name</th>
             <th>Email</th>
@@ -46,20 +33,17 @@ const TableUser = ({ users, search }) => {
             <th></th>
             <th>Status</th>
           </tr>
-        </thead>
-        {
-          users.filter(value => {
-            if (search === "") {
-              return value
-            } else if (value.firstName.toLowerCase().includes(search.toLowerCase())) {
-              return value
-            }
-          })
-            // users && users.length > 0 && users
-            .slice(0,10).map(item => {
-              return (
-                <tbody style={{height: '101px'}} key={item._id}>
-                  <tr>
+          {
+            users && users.length > 0 && users.filter(value => {
+              if (search === "") {
+                return value
+              } else if (value.firstName.toLowerCase().includes(search.toLowerCase())) {
+                return value
+              }
+            })
+              .slice(0, 10).map((item) => {
+                return (
+                  <tr style={{ height: '101px' }} key={item._id}>
                     <td style={{ fontWeight: '500' }}> <span className='icon'>{item.firstName[0].toUpperCase()}</span>{`${item.firstName} ${item.lastName}`}</td>
                     <td>{item.email}</td>
                     <td style={{ textAlign: 'center' }}>{item.balance}</td>
@@ -71,18 +55,17 @@ const TableUser = ({ users, search }) => {
                           item.verifiedAddress.status === "approved" &&
                           item.verifiedId.status === "approved") ||
                           (item.verifiedEmail && item.verifiedMobile && item.role === 1) ? (
-                          <span style={{ color: "#128807",fontWeight:'500' }}>Verified</span>
+                          <span style={{ color: "#128807", fontWeight: '500' }}>Verified</span>
                         ) : (
-                          <span style={{ color: "#FF0000",fontWeight:'500' }}> Not Verified</span>
+                          <span style={{ color: "#FF0000", fontWeight: '500' }}> Not Verified</span>
                         )}
-                        <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32">
-                          <circle cx="16" cy="8" r="2" fill="currentColor" /><circle cx="16" cy="16" r="2" fill="currentColor" /><circle cx="16" cy="24" r="2" fill="currentColor" /></svg>
+                        <Icons />
                       </div>
                     </td>
                   </tr>
-                </tbody>
-              )
-            })}
+                )
+              })}
+        </tbody>
       </Tabel>
     </>
   )

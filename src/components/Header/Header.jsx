@@ -16,7 +16,7 @@ const Header = () => {
           <li> <Link className='link' to="/home">Home</Link></li>
           <li> <Link className='link' to="/invoiuce">Invoices</Link></li>
           <li> <Link className='link' to="/user">User</Link></li>
-          <li> <Button><Link style={{color:'blue'}} className='link' to="/invoiceRecords">Create</Link></Button></li>
+          <li> <Button><Link style={{color:'blue'}} className='link' to="/createInvoiuce">Create</Link></Button></li>
         </ul>
       </nav>
     </Container>

@@ -29,7 +29,7 @@ td{
     display: flex;
     justify-content: space-between;
 }
-tbody:nth-child(even){
+tr:nth-child(even){
     background-color: #F5F5F5;
 }
 `;

@@ -56,7 +56,7 @@ const Verification = () => {
               <p className='details'>{user.email}<span style={{ color: user.verifiedEmail ? "#19AB16" : "#E80707" }}> ({user.verifiedEmail ? "verified" : "not verified"}) </span></p>
             </div>
             {user.verifiedEmail ? <img src={check} />
-              : <button className='btnVer' onClick={onSubmit(urlEmail)}><Link className='Link' to='/verificationCodeEmail'>Verify</Link></button>
+              : <button className='btnVer' onClick={onSubmit(urlEmail)}><Link className='Link' to='verificationCodeEmail'>Verify</Link></button>
             }
           </Contain>
           <Contain style={{ marginTop: '16px' }}>
@@ -65,7 +65,7 @@ const Verification = () => {
               <p className='details'>{startPhone} ****** {endPhone}<span style={{ color: user.verifiedMobile ? "#19AB16" : "#E80707" }}> ({user.verifiedMobile ? "verified" : "not verified"}) </span></p>
             </div>
             {user.verifiedMobile ? <img src={check} />
-              : <button className='btnVer' onClick={onSubmit(urlPhone)}><Link className='Link' to='/verificationCodePhone'>Verify</Link></button>
+              : <button className='btnVer' onClick={onSubmit(urlPhone)}><Link className='Link' to='verificationCodePhone'>Verify</Link></button>
             }
           </Contain>
           <p className='verifPara'>You can complete the 2 following tasks later</p>
@@ -75,7 +75,7 @@ const Verification = () => {
               <p className='details'>Identity card - Driver license - Passport</p>
             </div>
             {user.verifiedId.status == 'pending' ? <button className='btnPen'>Pending</button>
-              : <button className='btnVer'><Link className='Link' to='/idVerification'>Verify</Link></button>
+              : <button className='btnVer'><Link className='Link' to='idVerification'>Verify</Link></button>
             }
           </Contain>
           <Contain style={{ marginTop: '16px' }}>
@@ -84,7 +84,7 @@ const Verification = () => {
               <p className='details'>Phone, Electricity, Water Bill - Bank statement</p>
             </div>
             {user.verifiedAddress.status == 'pending' ? <button className='btnPen'>Pending</button>
-              : <button className='btnVer'><Link className='Link' to='/addressVerification'>Verify</Link></button>
+              : <button className='btnVer'><Link className='Link' to='addressVerification'>Verify</Link></button>
             }
           </Contain>
           {/* <ContainDetails title='Email Address' userData={user.email}
@@ -93,6 +93,7 @@ const Verification = () => {
             verify={user.verifiedEmail} path='/verificationCodeEmail' url={urlEmail} /> */}
           <ButtonStyle style={{ backgroundColor: user.verifiedMobile && user.verifiedMobile ? "#4375FF" : "#A7BDFB" }} disabled={user.verifiedEmail ==false && user.verifiedMobile == false}><Link className='Link' to='/home'>Contanie</Link></ButtonStyle>
         </Main>
+        
       </Container>
     </>
   )
