@@ -1,11 +1,8 @@
-import React, { useState, useEffect } from 'react'
-import { basedUrl } from '../../../apis/verifiy'
-import axios from 'axios'
+import React from 'react'
 //style
 import { Tabel } from './style'
-import Icons from '../Icons'
+import Icons from '../Icons/Icons'
 const TableUser = ({ users, search }) => {
-  // state
   // const [open, setOpen] = useState(false)
   //useEffect
   // useEffect(() => {
@@ -43,7 +40,7 @@ const TableUser = ({ users, search }) => {
             })
               .slice(0, 10).map((item) => {
                 return (
-                  <tr style={{ height: '101px' }} key={item._id}>
+                  <tr key={item._id}>
                     <td style={{ fontWeight: '500' }}> <span className='icon'>{item.firstName[0].toUpperCase()}</span>{`${item.firstName} ${item.lastName}`}</td>
                     <td>{item.email}</td>
                     <td style={{ textAlign: 'center' }}>{item.balance}</td>
