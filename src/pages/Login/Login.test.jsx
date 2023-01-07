@@ -13,5 +13,9 @@ describe('Login', () => {
         // screen.debug()
         screen.getByTestId('email')
         expect(screen.getByRole('button')).not.toBeDisabled 
+        //check button disabled then in change checbox and determin value then cheak button not disabled
+        // expect(screen.getByRole('button')).toBeDisabled();
+        // await waitFor(()=> fireEvent.click(screen.getByRole('checkbox')))
+        // expect(screen.getByRole('button')).not.toBeDisabled();
     })
 })
