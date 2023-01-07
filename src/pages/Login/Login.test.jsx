@@ -17,5 +17,8 @@ describe('Login', () => {
         // expect(screen.getByRole('button')).toBeDisabled();
         // await waitFor(()=> fireEvent.click(screen.getByRole('checkbox')))
         // expect(screen.getByRole('button')).not.toBeDisabled();
+        // to access attribute value when change
+        // fireEvent.change(screen.getByTestId('email'), {target: {value: 'nour@gmail.com'}})
+        // expect(screen.getByTestId('email')).toHaveAttribute('value', 'nour@gmail.com')
     })
 })
