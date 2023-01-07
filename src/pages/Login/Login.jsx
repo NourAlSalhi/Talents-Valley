@@ -57,7 +57,7 @@ const Login = () => {
             <Title>Login to Your Account</Title>
             <div className='form'>
                 <form onSubmit={handleSubmit(handelLogin)}>
-                    <Input err={err || erremail} placeholder='email@gmail.com' register={register} value="Email" name="email" type="email" />
+                    <Input test="email" err={err || erremail} placeholder='email@gmail.com' register={register} value="Email" name="email" type="email" />
                     {erremail ? <span style={{ color: 'red' }}>{erremail}</span> : <span style={visiStyle}>error</span>}
                     <Password label="Password" register={register} name='password' err={err || errPassword} />
                     <div className='err'>

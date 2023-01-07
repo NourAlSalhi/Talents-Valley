@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
-import filter from '../../../assets/icons/filter.svg'
 import Header from '../../../components/Header/Header'
 import { basedUrl } from '../../../apis/verifiy'
 import TableUser from '../../../components/Users/TableUsers/TableUser'

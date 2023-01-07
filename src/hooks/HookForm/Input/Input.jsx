@@ -10,6 +10,7 @@ const Input = (props) => {
         <div style={{marginTop:'30px'}}>
             <Label className='logLabel'>{props.value}</Label>
             <InputStyle
+                data-testid={props.test}
                 style={props.err && errStyle }
                 placeholder={props.placeholder}
                 type={props.type}
